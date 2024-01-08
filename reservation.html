@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Reservation</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        *{
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            
+        }
+        h1{
+            margin: 20px;
+        }
+        .reservation, .payment {
+            width: 100%;
+            /* max-width: 600px; Adjust as needed */
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+            /* display: inline-block; */
+            
+        }
+
+        .seating input,
+        .data input,
+        .paymentInfo input,
+        .paymentInfo button {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .seating input,
+        .seating label
+         {
+            margin-top: 40px;
+            margin-right: 80px;
+            font-weight: bold;
+        }
+        .seating{
+            display: flex;
+            flex-direction: row;
+            margin: 0 auto;
+           
+        }
+
+        .data input,
+        .data textarea {
+            width: 30%;
+            padding: 8px;
+            margin: 10px;
+            box-sizing: border-box;
+        }
+
+        .data input,
+        .data textarea,
+        .reservationInfo,
+        .paymentInfo input,
+        .payment{
+            border: 1px solid  #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
+        }
+        .reservationInfo{
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            
+        }
+
+        .paymentInfo input {
+            margin-top: 20px;
+            width: 40%; /* Adjust as needed */
+            /* display: flex; */
+            /* flex-direction: row; */
+            box-sizing: border-box;
+            margin-left: 60px;
+            height: 35px;
+            border-radius: 5px;
+            
+        }
+         button{
+            display: block;
+            margin: 0 auto;
+            margin-top: 10px;
+            width: 13%;
+            height: 40px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+        .nextPage button{
+            margin-top: 1rem;
+            width: 40%; 
+        }
+        .pay-now, .confirm{
+           border: none; 
+           background-color:  #025697; 
+            color: #fff;
+        }
+        .pay-later, .edit{
+           border: 4px solid #025697; 
+           background-color:  #ffffff; 
+            color: #000000;
+        }
+
+
+        textarea {
+            resize: vertical;
+            text-align: center;
+        }
+
+        /* Center the textarea in the .data div */
+        .data textarea {
+            display: block;
+            margin: 0 auto;
+            margin-top: 20px;
+            width: 30%;
+            margin-bottom: 30px;
+            
+        }
+        .close-modal {
+            position: absolute;
+            top: 1.2rem;
+            right: 2rem;
+            font-size: 3rem;
+            color: #333;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        p {
+           font-size: 1.2rem;
+        }
+
+/* -------------------------- */
+/* CLASSES TO MAKE MODAL WORK */
+       .hidden {
+            display: none;
+        }
+
+        .modal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40%;
+            background-color: white;
+            padding: 4rem;
+            border-radius: 10px;
+            /* border: 6px solid  #FBAC08;  */
+            box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+       .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200vh;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(3px);
+             z-index: 5;
+        }
+        @media only screen and (max-width: 768px) {
+  .reservation,
+  .payment,
+  .reservationInfo,
+  .paymentInfo,
+  .data {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .paymentInfo input{
+    margin: 15px auto;
+  }
+  .data input,
+  .paymentInfo input,.seating input
+  {
+    width: 100%;
+   }
+  .seating input,
+  .seating label {
+    margin-right: 0;
+    text-align: center;
+  }
+
+  .data textarea {
+    width: 80%;
+  }
+
+  button,
+  .nextPage button {
+    width: 70%;
+  }
+  .close-modal{
+    text-align: right;
+  }
+  .modal {
+        width: 80%; /* Adjust width for smaller screens */
+        top: 70%;
+    }
+    .overlay{
+        height: 270vh;
+    }
+}
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <a href="menu.html"><img src="src/et.png" alt="Restaurant Icon" class="restaurant-icon"></a> 
+        </div>
+        <div class="nav-right" id="navLinks">
+          <img
+            src="src/cancel icon.png"
+            alt="cancel icon"
+            class="cancelIcon"
+            onclick="hideMenu()"
+          />
+          <a href="menu.html" class="nav-link">Menu</a>
+          <a href="reservation.html" class="nav-link">Reservation</a>
+          <a href="menu-cart.html" class="text"
+            ><img
+              src="src/Menu Cart.png"
+              alt="Cart Icon"
+              class="language-icon"
+            />Cart</a
+          >
+        </div>
+        <img
+          src="src/menu icon.png"
+          alt="hamburger menu"
+          class="icon"
+          onclick="showMenu()"
+        />
+      </nav>
+
+    <section class="reservation">
+        <h1><b>Start Reservation</b></h1>
+        <form action="" class="reservationInfo">
+            <div class="seating">
+                <input type="radio" name="seating"> <label>Outdoors</label>
+                <input type="radio" name="seating"> <label>Indoors</label>
+            </div>
+            <div class="data">
+                <input type="text" placeholder="Enter Name">
+                <input type="number" placeholder="Enter no.of guest">
+                <input type="date" placeholder="Enter Date">
+                <input type="time" placeholder="Enter Time">
+                <input type="text" id="occasionAutocomplete" list="occasionOptions" placeholder="Occasion">
+                <datalist id="occasionOptions">
+                    <option value="Birthday">
+                    <option value="Anniversary">
+                    <option value="Party">
+                    <option value="None of the Above">
+                </datalist>
+                <textarea cols="30" rows="10" placeholder="Enter any special request"></textarea>
+            </div>
+        </form>
+    </section>
+
+    <section class="payment">
+        <h1><b>Payment</b></h1>
+        <form action="" class="paymentInfo" id="paymentForm">
+            <input type="text" id="paymentAutocomplete" name="paymentMode" list="paymentOptions" placeholder="Enter Mode Of Payment">
+            <datalist id="paymentOptions">
+                <option value="Credit Card">
+                <option value="Debit Card">
+                <option value="Paypal">
+            </datalist>
+            <input type="text" name="cardNumber" id="cardNumber" placeholder="XXX.XXXX.XXX">
+            <button type="submit" class="pay-now">Pay Now</button>
+            <button type="submit" class="pay-later">Pay Later</button>
+        </form>    
+    </section>
+
+    <div class="modal hidden">
+        <button class="close-modal">&times;</button>
+        <h1>Reservation Confirmation</h1>
+        <p>Dear Anzalna, <br>
+         You're almost there! Please review the details below before confirming: <br>
+         Restaurant: Ivy Terrace <br>
+         Date: 9/17/2023 <br>
+         Time: 8:00 PM <br>
+         Guests: 3 <br>
+         Occasion: Birthday <br>
+         If everything looks good, tap <b>Confirm</b> to secure your reservation. For any changes, tap <b>Edit</b> </p>
+        <div class="nextPage">
+            <button type="submit" class="confirm" onclick="goToConfirmedReservation()">Confirm</button>
+            <button type="submit" class="edit" onclick="navigateBackToReservation()">Edit</button>
+        </div>
+    </div>
+    <div class="overlay hidden"></div>
+    
+
+   
+  <!------------------------------ Footer ------------------------------->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="src/footer.png" alt="Your Company Logo">
+      </div>
+      <div class="footer-links">
+        <ul>
+          <li><a href="#"><b>CONTACT US</b></a></li>
+          <li><a href="#">info@eatTrek.com</a></li>
+          <li><a href="#">123-456-7890</a></li>
+          
+        </ul>
+      
+
+      <ul>
+        <li><a href="#"><b>ABOUT US</b></a></li>
+        <li><a href="#">FQA's</a></li>
+        <li><a href="#">Privacy Policies</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Help</a></li>
+      </ul>
+    
+
+    <ul>
+      <li><a href="#">Subscribe to our newsletter</a></li>
+      <li><a href="#">Download Our App</a></li>
+      <li><a href="#">Accessibilty</a></li>
+      <li><a href="#">Career</a></li>
+      <li><a href="#">Blog</a></li>
+    </ul>
+  </div>
+ 
+      <hr>
+      <div class="footer-info">
+        <div class="social-media">
+          <a>
+            <img src="src/instagram.png" alt="">
+          </a>
+
+      
+          <a>
+            <img src="src/facebook.png" alt="">
+          </a>
+
+
+          <a>
+            <img src="src/twitter.png" alt="">
+          </a>
+
+          
+          <a>
+            <img src="src/linkedIn.png" alt="">
+          </a>
+
+          <a>
+            <img src="src/youtube.png" alt="">
+          </a>
+        </div>
+        <p>© 2023 eatTrek, All rights reserved</p>
+      </div>
+    </div>
+  </footer>
+
+
+
+    <script>
+        const modal = document.querySelector('.modal');
+        const overlay = document.querySelector('.overlay');
+        const btnCloseModal = document.querySelector('.close-modal');
+        const paymentForm = document.getElementById('paymentForm');
+        const btnsOpenModal = document.querySelectorAll('.pay-now, .pay-later');
+
+        const openModal = function (e) {
+            e.preventDefault();  // Prevent form submission
+            modal.classList.remove('hidden');
+            overlay.classList.remove('hidden');
+        };
+
+        const closeModal = function () {
+            modal.classList.add('hidden');
+            overlay.classList.add('hidden');
+        };
+
+        for (let i = 0; i < btnsOpenModal.length; i++) {
+            btnsOpenModal[i].addEventListener('click', openModal);
+        }
+
+        btnCloseModal.addEventListener('click', closeModal);
+        overlay.addEventListener('click', closeModal);
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

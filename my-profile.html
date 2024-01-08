@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .avatar-container {
+    position: relative;
+    background-color: #edecec;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    /* overflow: hidden; */
+}
+
+.avatar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+.camera-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 20px;
+    transform: translate(50%, 50%);
+    background-color: #fcfcfc;
+    color: #000000;
+    border: none;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.profile-form {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    /* background-color: #fff; */
+    /* border-radius: 8px; */
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    text-align: center;
+}
+
+.profile-form input {
+    width: 75%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.profile-form label {
+    display: block;
+    text-align: left;
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+.profile-form button {
+    width: 35%;
+    padding: 10px;
+    background-color:  #025697;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <a href="homepage.html"><img src="src/et.png" alt="Restaurant Icon" class="restaurant-icon"></a> 
+        </div>
+        <div class="nav-right" id="navLinks">
+          <img src="src/cancel icon.png" alt="cancel icon" class="cancelIcon" onclick="hideMenu()">
+  
+          <a href="" class="nav-link">Search</a>
+          <a href="homepage.html" class="nav-link">Home</a>
+          <a href="my-profile.html" class="nav-link">My Profile </a>
+          <a href="cancel-reservation.html" class="nav-link"
+            >Cancel reservation</a
+          >
+          <a href="help.html" class="nav-link">Help</a>
+          <a href="login.html" class="nav-link">Logout</a>
+          <a href="language.html" class="text"
+            ><img
+              src="src/language-icon.png"
+              alt="Language Icon"
+              class="language-icon"
+          />Language </a>
+        </div>
+        <img src="src/menu icon.png" alt="hamburger menu" class="icon" onclick="showMenu()">
+      </nav>
+      
+      <h1>My Profile</h1>
+      <div class="avatar-container">
+        <img class="avatar-image" src="src/Savvy.jpg" alt="Profile Image">
+        <!-- <input type="image" class="avatar-image" > -->
+        <button type="button" class="camera-icon">&#128247;</button>
+    </div>
+
+    <form class="profile-form">
+        <input type="text" placeholder="Name">
+        <input type="email" placeholder="Email">
+        <label for="">
+            <b>Change Password</b>   
+        </label>
+        <input type="password" placeholder="Current Password">
+        <input type="password" placeholder="New Password">
+        <input type="password" placeholder="Re-enter New Password">
+        <button type="submit">Save Changes</button>
+    </form>
+     <br>
+   
+     
+  <!------------------------------ Footer ------------------------------->
+    <footer class="footer">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img src="src/footer.png" alt="Your Company Logo">
+          </div>
+          <div class="footer-links">
+            <ul>
+              <li><a href="#"><b>CONTACT US</b></a></li>
+              <li><a href="#">info@eatTrek.com</a></li>
+              <li><a href="#">123-456-7890</a></li>
+              
+            </ul>
+          
+
+          <ul>
+            <li><a href="#"><b>ABOUT US</b></a></li>
+            <li><a href="#">FQA's</a></li>
+            <li><a href="#">Privacy Policies</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+        
+
+        <ul>
+          <li><a href="#">Subscribe to our newsletter</a></li>
+          <li><a href="#">Download Our App</a></li>
+          <li><a href="#">Accessibilty</a></li>
+          <li><a href="#">Career</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+     
+          <hr>
+          <div class="footer-info">
+            <div class="social-media">
+              <a>
+                <img src="src/instagram.png" alt="">
+              </a>
+  
+          
+              <a>
+                <img src="src/facebook.png" alt="">
+              </a>
+  
+
+              <a>
+                <img src="src/twitter.png" alt="">
+              </a>
+  
+              
+              <a>
+                <img src="src/linkedIn.png" alt="">
+              </a>
+  
+              <a>
+                <img src="src/youtube.png" alt="">
+              </a>
+            </div>
+            <p>© 2023 eatTrek, All rights reserved</p>
+          </div>
+        </div>
+      </footer>
+     <script src="script.js"></script>
+</body>
+</html>

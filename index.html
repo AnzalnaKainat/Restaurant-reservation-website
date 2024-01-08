@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get Started - EatTrek</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .content-container {
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      .restaurant-logo {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .content-container h1 {
+        color: #fbac08;
+        font-family: 'Baskerville Old Face';
+      }
+
+      .journey-text {
+        color: #025697;
+        font-family: 'Baskerville Old Face';
+        font-size: 20px;
+      }
+
+      .get-started-btn {
+        background-color: #025697;
+        color: #fff;
+        margin-top: 50px;
+        padding: 15px 30px;
+        font-size: 18px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+      }
+      @media only screen and (max-width: 768px) {
+        .restaurant-logo{
+          max-width: 50%;
+        }
+        .content-container h1 {
+          font-size: 25px;
+        }
+    .content-container {
+        margin-top: 30px;
+    }
+
+    .get-started-btn {
+        margin-top: 30px;
+        font-family: 'Arial Rounded MT';
+    }
+}
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-left">
+        <img src="src/et.png" alt="Restaurant Icon" class="restaurant-icon" />
+      </div>
+      <div class="nav-right" id="navLinks">
+        
+        <img
+        src="src/cancel icon.png"
+        alt="cancel icon"
+        class="cancelIcon"
+        onclick="hideMenu()"
+      />
+        <a href="login.html" class="nav-link">Login</a>
+        <a href="signup.html" class="nav-link link-button">Sign Up</a>
+        <a href="language.html" class="text"
+          ><img
+            src="src/language-icon.png"
+            alt="Language Icon"
+            class="language-icon"
+        />Language</a>
+      </div>
+      <img
+          src="src/menu icon.png"
+          alt="hamburger menu"
+          class="icon"
+          onclick="showMenu()"
+        />
+    </nav>
+
+    <div class="content-container">
+      <img
+        src="src/restaurant-logo.png"
+        alt="Restaurant Logo"
+        class="restaurant-logo"
+      />
+      <h1>Your Culinary Journey Starts Here</h1>
+      <p class="journey-text">
+        Start your culinary adventure at EatTrek, where every meal is a journey
+        waiting to be savored.
+      </p>
+      <button class="get-started-btn" onclick="goToSignUp()">
+        Get Started
+      </button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

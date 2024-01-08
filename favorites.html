@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Section</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Restaurant Section */
+        .restaurant-section {
+        padding: 20px;
+        margin: 20px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center; /* Center items vertically */
+        }
+
+        .custom-card {
+            /* flex: 1; */
+            margin: 0 10px 20px 10px;
+            padding: 10px;
+            max-width: 400px; /* Set your desired max width */
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            width: calc(33.333% - 20px); /* Adjust the width based on your needs */
+        }
+
+        .custom-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .restaurant-details {
+            flex: 1;
+        }
+
+        .restaurant-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .review-rating {
+            color: #000000;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .description {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        @media only screen and (max-width: 768px) {
+    .custom-card {
+        width: calc(50% - 20px); /* Adjust the width for smaller screens */
+    }
+    .restaurant-name{
+        font-size: 14px;
+    }
+    .description{
+        font-size: 12px;
+    }
+    .review-rating{
+        font-size: 13px;
+    }
+}
+        
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <a href="homepage.html"><img src="src/et.png" alt="Restaurant Icon" class="restaurant-icon"></a> 
+        </div>
+        <div class="nav-right" id="navLinks">
+          <img src="src/cancel icon.png" alt="cancel icon" class="cancelIcon" onclick="hideMenu()">
+  
+          <a href="" class="nav-link">Search</a>
+          <a href="homepage.html" class="nav-link">Home</a>
+          <a href="my-profile.html" class="nav-link">My Profile </a>
+          <a href="cancel-reservation.html" class="nav-link"
+            >Cancel reservation</a
+          >
+          <a href="help.html" class="nav-link">Help</a>
+          <a href="login.html" class="nav-link">Logout</a>
+          <a href="language.html" class="text"
+            ><img
+              src="src/language-icon.png"
+              alt="Language Icon"
+              class="language-icon"
+          />Language </a>
+        </div>
+        <img src="src/menu icon.png" alt="hamburger menu" class="icon" onclick="showMenu()">
+      </nav>
+      
+      <h1>Favorites</h1>
+    <!-- Restaurant Section -->
+    <section class="restaurant-section" id="restaurantSection"></section>
+     
+   
+  <!------------------------------ Footer ------------------------------->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="src/footer.png" alt="Your Company Logo">
+      </div>
+      <div class="footer-links">
+        <ul>
+          <li><a href="#"><b>CONTACT US</b></a></li>
+          <li><a href="#">info@eatTrek.com</a></li>
+          <li><a href="#">123-456-7890</a></li>
+          
+        </ul>
+      
+
+      <ul>
+        <li><a href="#"><b>ABOUT US</b></a></li>
+        <li><a href="#">FQA's</a></li>
+        <li><a href="#">Privacy Policies</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Help</a></li>
+      </ul>
+    
+
+    <ul>
+      <li><a href="#">Subscribe to our newsletter</a></li>
+      <li><a href="#">Download Our App</a></li>
+      <li><a href="#">Accessibilty</a></li>
+      <li><a href="#">Career</a></li>
+      <li><a href="#">Blog</a></li>
+    </ul>
+  </div>
+ 
+      <hr>
+      <div class="footer-info">
+        <div class="social-media">
+          <a>
+            <img src="src/instagram.png" alt="">
+          </a>
+
+      
+          <a>
+            <img src="src/facebook.png" alt="">
+          </a>
+
+
+          <a>
+            <img src="src/twitter.png" alt="">
+          </a>
+
+          
+          <a>
+            <img src="src/linkedIn.png" alt="">
+          </a>
+
+          <a>
+            <img src="src/youtube.png" alt="">
+          </a>
+        </div>
+        <p>© 2023 eatTrek, All rights reserved</p>
+      </div>
+    </div>
+  </footer>
+  
+    <script>
+        // Custom restaurant data
+        const customRestaurants = [
+            {
+                name: "Gastronomique Fusion",
+                image: "src/Gastronomique Fusion.jpg",
+                rating: 4.2,
+                description: "Experience the perfect blend of global cuisines in a chic ambiance at Gastronomique Fusion.",
+                link: "restaurant-page.html"
+            },
+            {
+                name: "Fire & Ice Grillhouse",
+                image: "src/grill house.jpg",
+                rating: 4.8,
+                description: "Experience the contrast of bold flavors and cool sophistication at Fire & Ice Grillhouse, a culinary adventure awaits.",
+                link: "gastronomique-fusion-page.html"
+            },
+            {
+                name: "Serenade Steaks & Sips",
+                image: "src/Serenade Steaks & Sips.jpg",
+                rating: 4.5,
+                description: "Serenade Steaks & Sips invites you to an elegant affair, pairing succulent steaks with the finest wine selections.",
+                link: "gastronomique-fusion-page.html"
+            },
+            {
+                name: "Ocean Breeze Bistro",
+                image: "src/Ocean Breeze Bistro.jpg",
+                rating: 4.2,
+                description: "Enjoy the freshest seafood and a tranquil atmosphere at Ocean Breeze Bistro, a seaside culinary haven.",
+                link: "gastronomique-fusion-page.html"
+            },
+            
+        ];
+
+        function createRestaurantCard(restaurant) {
+            const card = document.createElement("div");
+            card.classList.add("custom-card");
+
+            // Create a clickable link for the image
+            const imageContainer = document.createElement("a");
+            imageContainer.href = restaurant.link;
+            imageContainer.classList.add("custom-image-container");
+
+            const image = document.createElement("img");
+            image.src = restaurant.image;
+            image.alt = restaurant.name;
+            image.classList.add("custom-image");
+
+            imageContainer.appendChild(image);
+
+            const details = document.createElement("div");
+            details.classList.add("restaurant-details");
+
+            const name = document.createElement("div");
+            name.classList.add("restaurant-name");
+            name.innerHTML = `
+                <span>${restaurant.name}</span>
+                <span class="review-rating">&#9733; ${restaurant.rating}</span>
+            `;
+
+            const description = document.createElement("div");
+            description.classList.add("description");
+            description.textContent = restaurant.description;
+
+            // Append elements to the card
+            details.appendChild(name);
+            details.appendChild(description);
+
+            card.appendChild(imageContainer); // Replace image with imageContainer
+            card.appendChild(details);
+
+            return card;
+        }
+
+        // Function to initialize the restaurant section
+        function initializeRestaurantSection() {
+            const section = document.getElementById("restaurantSection");
+
+            // Create restaurant cards and append to the section
+            customRestaurants.forEach(restaurant => {
+                const card = createRestaurantCard(restaurant);
+                section.appendChild(card);
+            });
+
+        }
+
+        
+        initializeRestaurantSection();
+    </script>
+     <script src="script.js"></script> 
+</body>
+</html>

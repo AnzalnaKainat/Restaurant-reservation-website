@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancel Reservation</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .cancelReservation {
+    background-color: #f9f9f9;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left;
+    width: 90%;
+    margin: 0 auto; /* Center the container */
+}
+
+.cancelReservation h2 {
+    color: #000000;
+}
+
+.cancelReservation h4 {
+    margin: 10px 0;
+    color: #333;
+}
+
+.cancelReservation input[type="text"] {
+    width: calc(50% - 10px); /* Set a specific width for the input fields and add a small margin between them */
+    padding: 10px;
+    margin-right: 5px; /* Add a margin between the input fields */
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    display: inline-block; /* Display the input fields inline */
+}
+
+button {
+    width: 15%; /* Set the width to 15% */
+    margin: 20px auto; /* Center the button and add a margin */
+    padding: 10px;
+    font-weight: bold;
+    background-color: #025697;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: block; /* Ensure the button takes the full width */
+}
+.homePage button{
+    width: 40%;
+    height: 40px;
+    margin-top: 1rem;
+}
+
+.close-modal {
+            position: absolute;
+            top: 1.2rem;
+            right: 2rem;
+            font-size: 3rem;
+            color: #333;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        p {
+           font-size: 1.2rem;
+        }
+        .refund{
+             display: flex;
+             flex-wrap: wrap; 
+             
+            }
+
+/* -------------------------- */
+/* CLASSES TO MAKE MODAL WORK */
+       .hidden {
+            display: none;
+        }
+
+        .modal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40%;
+            background-color: white;
+            padding: 4rem;
+            border-radius: 10px;
+            border: 6px solid  #FBAC08; 
+            box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+       .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 190vh;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(3px);
+             z-index: 5;
+        }
+        @media only screen and (max-width: 768px) {
+           .refund button{
+            width: 40%;
+           }
+            .modal {
+        width: 60%; /* Adjust width for smaller screens */
+        top: 70%;
+    }
+    .overlay{
+        height: 197vh;
+    }
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <a href="homepage.html"><img src="src/et.png" alt="Restaurant Icon" class="restaurant-icon"></a> 
+        </div>
+        <div class="nav-right" id="navLinks">
+          <img src="src/cancel icon.png" alt="cancel icon" class="cancelIcon" onclick="hideMenu()">
+  
+          <a href="" class="nav-link">Search</a>
+          <a href="homepage.html" class="nav-link">Home</a>
+          <a href="my-profile.html" class="nav-link">My Profile </a>
+          <a href="cancel-reservation.html" class="nav-link"
+            >Cancel reservation</a
+          >
+          <a href="help.html" class="nav-link">Help</a>
+          <a href="login.html" class="nav-link">Logout</a>
+          <a href="language.html" class="text"
+            ><img
+              src="src/language-icon.png"
+              alt="Language Icon"
+              class="language-icon"
+          />Language </a>
+        </div>
+        <img src="src/menu icon.png" alt="hamburger menu" class="icon" onclick="showMenu()">
+      </nav>
+      <h1>Cancel Reservation</h1>
+    <div class="cancelReservation">
+        <div class="reservationInfo">
+            <h2>Reservation Confrimed</h2>
+            <h4>Reservation no: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E234674</h4>
+            <h4>Pay on Arrival</h4>
+            <h4>"Thank you for securing our reservation, we are looking forward to a wonderful dining experience"</h4>
+        </div>
+           <br>
+          <h2>Refund Information</h2>
+        <form class="refund">
+            <input type="text" id="autocomplete" list="options" placeholder="Enter Mode Of Payment">
+            <datalist id="options">
+            <option value="Credit Card">
+            <option value="Debit Card">
+            <option value="Paypal">
+           </datalist>
+            <input type="text" name="" id="" placeholder="XXX.XXXX.XXX">
+            <button type="submit" class="cancellation">Cancel Reservation</button>
+        </form>
+    </div> 
+     
+    <div class="modal hidden">
+        <button class="close-modal">&times;</button>
+        <h1>Cancel Reservation</h1>
+        <p>Dear Anzalna, <br>
+           Your reservation for 9/17/2023 ,8:00 PM has been canceled.
+            Refunded amount is $28
+            <br> <br>
+            <b>Reservation Details:</b> <br>
+
+           Restaurant: Ivvy Terrace <br>
+           Date: 9/17/2023 <br>
+           Time: 8:00 PM <br>
+           Guests: 3 <br>
+           Occasion: Birthday <br>
+           Refunded amount: $28 <br><br>
+
+           We apologize for any inconvenience this may have caused. <br>
+           Best regards, <br>
+           Ivvy Terrace </p>
+        <div class="homePage">
+            <button type="submit" class="confirm" onclick="goBackToHomepage()">Back to homepage</button>
+        </div>
+    </div>
+    <div class="overlay hidden"></div>
+
+    
+  <!------------------------------ Footer ------------------------------->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="src/footer.png" alt="Your Company Logo">
+      </div>
+      <div class="footer-links">
+        <ul>
+          <li><a href="#"><b>CONTACT US</b></a></li>
+          <li><a href="#">info@eatTrek.com</a></li>
+          <li><a href="#">123-456-7890</a></li>
+          
+        </ul>
+      
+
+      <ul>
+        <li><a href="#"><b>ABOUT US</b></a></li>
+        <li><a href="#">FQA's</a></li>
+        <li><a href="#">Privacy Policies</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Help</a></li>
+      </ul>
+    
+
+    <ul>
+      <li><a href="#">Subscribe to our newsletter</a></li>
+      <li><a href="#">Download Our App</a></li>
+      <li><a href="#">Accessibilty</a></li>
+      <li><a href="#">Career</a></li>
+      <li><a href="#">Blog</a></li>
+    </ul>
+  </div>
+ 
+      <hr>
+      <div class="footer-info">
+        <div class="social-media">
+          <a>
+            <img src="src/instagram.png" alt="">
+          </a>
+
+      
+          <a>
+            <img src="src/facebook.png" alt="">
+          </a>
+
+
+          <a>
+            <img src="src/twitter.png" alt="">
+          </a>
+
+          
+          <a>
+            <img src="src/linkedIn.png" alt="">
+          </a>
+
+          <a>
+            <img src="src/youtube.png" alt="">
+          </a>
+        </div>
+        <p>© 2023 eatTrek, All rights reserved</p>
+      </div>
+    </div>
+  </footer>
+  
+    <script>
+        const modal = document.querySelector('.modal');
+        const overlay = document.querySelector('.overlay');
+        const btnCloseModal = document.querySelector('.close-modal');
+        const refund = document.getElementById('refund');
+        const btnsOpenModal = document.querySelectorAll('.cancellation');
+
+        const openModal = function (e) {
+            e.preventDefault();  // Prevent form submission
+            modal.classList.remove('hidden');
+            overlay.classList.remove('hidden');
+        };
+
+        const closeModal = function () {
+            modal.classList.add('hidden');
+            overlay.classList.add('hidden');
+        };
+
+        for (let i = 0; i < btnsOpenModal.length; i++) {
+            btnsOpenModal[i].addEventListener('click', openModal);
+        }
+
+        btnCloseModal.addEventListener('click', closeModal);
+        overlay.addEventListener('click', closeModal);
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

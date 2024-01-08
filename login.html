@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .content-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+      .restaurant-logo {
+  margin-top: 10px;
+  max-width: 100%;
+  height: auto;
+}
+.login-container {
+  width: 30%;
+  margin: 0 auto;
+}
+
+.login form {
+  box-sizing: border-box;
+  padding-top: 30px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+}
+input {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+.login-btn {
+  background-color: #025697;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 45%;
+  margin: 0 auto;
+}
+
+.forgot {
+  font-weight: bold;
+  color: #025697;
+}
+.signup-link {
+  margin-top: 20px;
+  color: #025697;
+}
+
+.signup-link a {
+  color: #025697;
+  text-decoration: none;
+}
+@media only screen and (max-width: 768px) {
+  .restaurant-logo{
+    max-width: 50%;
+  }
+    .login-container {
+        width: 90%; /* Adjust width for smaller screens */
+    }
+}
+    </style>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-left">
+      <img src="src/et.png" alt="Restaurant Icon" class="restaurant-icon" />
+    </div>
+    <div class="nav-right" id="navLinks">
+      
+      <img
+      src="src/cancel icon.png"
+      alt="cancel icon"
+      class="cancelIcon"
+      onclick="hideMenu()"
+    />
+      <a href="login.html" class="nav-link">Login</a>
+      <a href="signup.html" class="nav-link link-button">Sign Up</a>
+      <a href="language.html" class="text"
+        ><img
+          src="src/language-icon.png"
+          alt="Language Icon"
+          class="language-icon"
+      />Language</a>
+    </div>
+    <img
+        src="src/menu icon.png"
+        alt="hamburger menu"
+        class="icon"
+        onclick="showMenu()"
+      />
+  </nav>
+
+
+      <div class="content-container">
+        <img src="src/restaurant-logo.png" alt="Restaurant Logo" class="restaurant-logo">
+      </div>
+
+      <div class="login-container">
+        <div class="login">
+            <form>
+                <br>
+              <input type="email" placeholder="Enter Email" required>
+              <input type="password" placeholder="Enter Password" required>
+              <p class="forgot">forgot password</p>
+              <button type="submit" class="login-btn" onclick="goToHomepage()">Login</button>
+            </form>
+    
+            <p class="signup-link">Don't have an account? <a href="signup.html">Sign Up</a></p>
+          </div>
+        </div>
+      </div>
+      
+  
+    <script src="script.js"></script>
+
+</body>
+</html>

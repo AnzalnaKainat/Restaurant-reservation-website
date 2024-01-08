@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Menu Page</title>
+        <link rel="stylesheet" href="styles.css">
+
+        <style>
+       * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 20px;
+            /* margin-top:  120px; */
+        }
+
+        .filter-buttons {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+       .filter-button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 12px;
+            text-align: left;
+            cursor: pointer;
+            position: relative;
+            width: 140px; /* Set a fixed width for the buttons */
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+       .filter-button img {
+            vertical-align: middle; /* Align the image vertically within the button */
+            width: 40px; /* Set a fixed width for the images */
+            height: 40px; /* Set a fixed height for the images */
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 10px; /* Add some margin between the image and text */
+        }
+
+        .filter-button span {
+            display: inline-block;
+            vertical-align: middle; /* Align the text vertically within the button */
+        }
+
+        .filter-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+
+        
+        .menu-section {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 70px;
+        }
+
+        .menu-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .menu-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .menu-details {
+            padding: 10px;
+        }
+
+        .menu-name {
+            margin: 10px 0;
+            text-align: left;
+            font-size: 18px;
+        }
+
+        .price-and-button {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu-price {
+            font-size: 16px;
+            color: #888;
+        }
+
+        .add-to-cart-button {
+            padding: 10px;
+            width: 45%;
+            background-color: #025697;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        @media only screen and (max-width: 768px) {
+  .menu-section {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px; /* Adjust the gap for better spacing on smaller screens */
+  }
+
+  .menu-card {
+    width: 100%; /* Make the cards take full width on smaller screens */
+  }
+
+  .menu-price {
+    font-size: 14px; /* Adjust font size for price on smaller screens */
+  }
+
+  .add-to-cart-button {
+    width: 60%; /* Make the button take full width on smaller screens */
+  }
+}
+
+
+
+       
+        .cart-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100%;
+            background-color: #fff;
+            z-index: 999;
+            overflow-y: auto;
+            padding: 20px;
+            box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .show-cart {
+            display: block !important;
+        }
+        .close-cart{
+            background-color: #fff;
+            color: #000000;
+            font-size: larger;
+            font-weight: bold;
+            margin-left: 200px;
+            border: none;  
+        }
+        .cart-buttons {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .cart-buttons button {
+            background-color: #025697 ;
+            font-weight: bold;
+            border-radius: 10px;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px 10px;
+            cursor: pointer;
+        }
+    
+
+        .item img {
+    width: 120px;
+    height: 100px; 
+    object-fit: cover;
+    margin-top: 10px;
+    margin-right: 20px;
+    border-radius: 8px;
+}
+
+        .item-content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.left-cart {
+    flex: 0 0 auto;
+    margin-right: 20px;
+}
+
+.left-cart img {
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.right-cart h3 {
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.right-cart p {
+    color: #888;
+}
+
+        .count {
+            display: flex;
+            justify-content: right;
+        }
+
+        .count button {
+            background-color: #025697; 
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            margin: 0 15px;
+            cursor: pointer;
+        }
+
+        .count button.add {
+            background-color: #FBAC08; 
+        }
+
+        .total {
+            margin-top: 20px;
+        }
+
+        .total p {
+            margin-bottom: 0; 
+            font-weight: bold;
+        }
+
+      
+        .delete{
+            background-color: #fff;
+            color: #000000;
+            font-size: larger;
+            margin-left: 170px;
+            border: none;
+        }
+    </style>
+    </head>
+    <body>
+        <!-- Navigation -->
+        <nav>
+            <div class="nav-left">
+                <a href="restaurant-page.html"><img src="src/et.png"
+                        alt="Restaurant Icon" class="restaurant-icon"></a>
+            </div>
+            <div class="nav-right" id="navLinks">
+                <img
+                    src="src/cancel icon.png"
+                    alt="cancel icon"
+                    class="cancelIcon"
+                    onclick="hideMenu()" />
+                <a href="menu.html" class="nav-link">Menu</a>
+                <a href="reservation.html" class="nav-link">Reservation</a>
+                <a href="menu-cart.html" class="text"><img
+                        src="src/Menu Cart.png"
+                        alt="Cart Icon"
+                        class="language-icon" />Cart</a>
+            </div>
+            <img
+                src="src/menu icon.png"
+                alt="hamburger menu"
+                class="icon"
+                onclick="showMenu()" />
+        </nav>
+        <!-- ... -->
+
+        <div class="container">
+            <!-- Menu content -->
+            <h2 class="heading">Categories</h2>
+
+            <div class="filter-buttons">
+                <button class="filter-button" onclick="filterMenu('All')"><img
+                        class="filterImage"
+                        src="src/Menu/Categories/main course.jpg"
+                        alt="All Filter Image"><span>All</span></button>
+                <button class="filter-button"
+                    onclick="filterMenu('Appetizer')"><img class="filterImage"
+                        src="src/Menu/Categories/appitizers.jpg"
+                        alt="Appetizer Filter Image"><span>Appetizer</span></button>
+                <button class="filter-button"
+                    onclick="filterMenu('Breakfast')"><img class="filterImage"
+                        src="src/Menu/Categories/breakfast.jpg"
+                        alt="Breakfast Filter Image"><span>Breakfast</span></button>
+                <button class="filter-button"
+                    onclick="filterMenu('Dessert')"><img class="filterImage"
+                        src="src/Menu/Categories/dessert.jpg"
+                        alt="Dessert Filter Image"><span>Dessert</span></button>
+                <button class="filter-button" onclick="filterMenu('Drink')"><img
+                        class="filterImage" src="src/Menu/Categories/drinks.jpg"
+                        alt="Drink Filter Image"><span>Drink</span></button>
+                <button class="filter-button" onclick="filterMenu('Main')"><img
+                        class="filterImage"
+                        src="src/Menu/Categories/main course2.jpg"
+                        alt="Main Filter Image"><span>Main</span></button>
+                <button class="filter-button"
+                    onclick="filterMenu('Special')"><img class="filterImage"
+                        src="src/Menu/Categories/special.jpg"
+                        alt="Special Filter Image"><span>Special</span></button>
+            </div>
+
+            <div class="menu-section" id="menuSection">
+                <!-- Menu items will be dynamically added here -->
+            </div>
+            <!-- ... -->
+
+            <!-- Cart section -->
+            <div class="cart-container" id="cartContainer">
+                <!-- Cart content -->
+                <button class="close-cart" onclick="hideCart()">X</button>
+                <header>
+                    <h1>Your Cart</h1>
+                    <hr>
+                    <p>Total Items: <span id="totalItems">1</span></p>
+                </header>
+                <hr>
+                <main id="cartItems">
+                    <!-- Cart items will be displayed here -->
+                </main>
+                <div class="total">
+                    <p>Total Price: $<span id="totalPrice">0.00</span></p>
+                </div>
+                <div class="cart-buttons">
+                    <button onclick="addItem()">Add More to Cart</button>
+                    <button onclick="reserveNow()">Reserve Now</button>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- JavaScript code -->
+        <script>
+
+             const menuData = [
+        { category: '', name: 'Beef Burger', price: '$10.99', image: 'src/Menu/Beef burger.jpg'},
+        { category: 'Main', name: 'Biryani', price: '$8.99', image: 'src/Menu/biryani.jpg' },
+        { category: 'Main', name: 'Chowmein', price: '$69.99', image: 'src/Menu/chowmien.jpg'},
+        { category: 'Main', name: 'Dumplings', price: '$15.99', image: 'src/Menu/dumpling.jpg'},
+        { category: 'Appietizer', name: 'Ebi Fry', price: '$5.99', image: 'src/Menu/Ebi fry.jpg'},
+        { category: 'Appetizer', name: 'Falafel', price: '$5.99', image: 'src/Menu/falafel.jpg'},
+        { category: 'Main', name: 'Lasgna', price: '$10.99', image: 'src/Menu/lasgna.jpg'},
+        { category: 'Dessert', name: 'Macaroon', price: '$6.99', image: 'src/Menu/macaroon.jpg' },
+        { category: 'Special', name: 'Onion Soup', price: '$6.99', image: 'src/Menu/onion soup.jpg'},
+        { category: 'Breakfast', name: 'Pancake', price: '$4.99', image: 'src/Menu/Pancake.jpg'},
+        { category: 'Main', name: 'Pizza Fries', price: '$8.99', image: 'src/Menu/pizza fries.jpg'},
+        { category: 'Main', name: 'Pizza', price: '$18.99', image: 'src/Menu/pizza.jpg'},
+        { category: 'Appetizer', name: 'Russian Salad', price: '$6.99', image: 'src/Menu/russian salad.jpg'},
+        { category: 'Special', name: 'Seekh Kebab', price: '$15.99', image: 'src/Menu/Seekh kebab.jpg' },
+        { category: 'Main', name: 'Shawarma', price: '$9.99', image: 'src/Menu/shawarma.jpg'},
+        { category: 'Special', name: 'Sushi', price: '$19.99', image: 'src/Menu/sushi.jpg'},
+        { category: 'Dessert', name: 'Tiramisu', price: '$12.99', image: 'src/Menu/tiramisu.jpg'},
+        { category: 'Breakfast', name: 'Waffels', price: '$5.99', image: 'src/Menu/waffles.jpg'},
+        { category: 'Appetizer', name: 'Bruschetta', price: '$5.99', image: 'src/Menu/Bruschetta_Appitzer.jpg'},
+        { category: 'Main', name: 'Vegetarian Stir-Fry with Tofu', price: '$9.99', image: 'src/Menu/Vegetarian Stir-Fry with Tofu_main.jpg'},
+        { category: 'Special', name: 'Salmon with Lemon-Dill Sauce', price: '$19.99', image: 'src/Menu/Salmon with Lemon-Dill Sauce_special.jpg'},
+        { category: 'Appetizer', name: 'Deviled Eggs', price: '$5.99', image: 'src/Menu/Deviled Eggs_Appitizer.jpg'},
+        { category: 'Drink', name: 'Cucumber Mint Lemonade', price: '$5.99', image: 'src/Menu/Cucumber Mint Lemonade_drinks.jpg'},
+        { category: 'Drink', name: 'Iced Herbal Tea', price: '$5.99', image: 'src/Menu/Iced Herbal Tea_drinks.jpg'},
+        { category: 'Appetizer', name: 'Shrimp Cocktail', price: '$5.99', image: 'src/Menu/Shrimp Cocktail_Appitizer.jpg'},
+        { category: 'Dessert', name: 'Chocolate Lava Cake', price: '$6.99', image: 'src/Menu/Chocolate Lava Cake_dessert.jpg' },
+        { category: 'Drink', name: 'Mango Lassi', price: '$5.99', image: 'src/Menu/Mango Lassi_drinks.jpg'},
+        { category: 'Appetizer', name: 'Caprese Skewers', price: '$5.99', image: 'src/Menu/Caprese Skewers_Appitizer.jpg'},
+        { category: 'Dessert', name: 'Cheesecake with Berry Compote', price: '$6.99', image: 'src/Menu/Cheesecake with Berry Compote_dessert.jpg' },
+        { category: 'Dessert', name: 'Panna Cotta', price: '$6.99', image: 'src/Menu/Panna Cotta_dessert.jpg' },
+        { category: 'Breakfast', name: 'Vegetable Omelette', price: '$5.99', image: 'src/Menu/Vegetable Omelette_breakfast.jpg'},
+        { category: 'Dessert', name: 'Fruit Sorbet', price: '$6.99', image: 'src/Menu/Fruit Sorbet_dessert.jpg' },
+        { category: 'Drink', name: 'Coconut Water with Pineapple', price: '$5.99', image: 'src/Menu/Coconut Water with Pineapple_drinks.jpg'},
+        { category: 'Appetizer', name: 'Chicken Satay Skewers', price: '$5.99', image: 'src/Menu/Chicken Satay Skewers_Appitizer.jpg'},
+        { category: 'Drink', name: 'Berry Smoothie', price: '$5.99', image: 'src/Menu/Berry Smoothie_drinks.jpg'},
+        { category: 'Drink', name: 'Iced Coffee', price: '$5.99', image: 'src/Menu/Iced Coffee_drinks.jpg'},
+        { category: 'Main', name: 'Grilled Lemon Herb Chicken', price: '$9.99', image: 'src/Menu/Grilled Lemon Herb Chicken_main.jpg'},
+        { category: 'Breakfast', name: 'Chia Seed Pudding', price: '$5.99', image: 'src/Menu/Chia Seed Pudding_breakfast.jpg'},
+        { category: 'Breakfast', name: 'Egg and Veggie Breakfast Burrito', price: '$5.99', image: 'src/Menu/Egg and Veggie Breakfast Burrito_breakfast.jpg'},
+        { category: 'Drink', name: 'Hot Chocolate', price: '$5.99', image: 'src/Menu/Hot Chocolate_drinks.jpg'},
+        { category: 'Special', name: 'Mushroom Risotto', price: '$9.99', image: 'src/Menu/Mushroom Risotto_special.jpg'},
+        { category: 'Special', name: 'Vegetable Stuffed Bell Peppers', price: '$8.99', image: 'src/Menu/Vegetable Stuffed Bell Peppers_special.jpg'},
+        ];
+   
+
+    function filterMenu(category) {
+        let filteredMenu;
+        if (category === 'All') {
+            filteredMenu = menuData;
+        } else {
+            filteredMenu = menuData.filter(item => item.category === category);
+        }
+        displayMenu(filteredMenu);
+    }
+
+    function displayMenu(menuItems) {
+        const menuSection = document.getElementById('menuSection');
+        menuSection.innerHTML = ''; // Clear existing content before displaying new items
+
+        menuItems.forEach(item => {
+            const menuCard = document.createElement('div');
+            menuCard.classList.add('menu-card');
+
+            const menuImage = document.createElement('img');
+            menuImage.src = item.image;
+            menuImage.alt = item.name;
+            menuImage.classList.add('menu-image');
+
+            const menuDetails = document.createElement('div');
+            menuDetails.classList.add('menu-details');
+
+            const menuName = document.createElement('h3');
+            menuName.classList.add('menu-name');
+            menuName.textContent = item.name;
+
+            const priceAndButton = document.createElement('div');
+            priceAndButton.classList.add('price-and-button');
+
+            const menuPrice = document.createElement('p');
+            menuPrice.classList.add('menu-price');
+            menuPrice.textContent = item.price;
+
+            const addToCartButton = document.createElement('button');
+            addToCartButton.classList.add('add-to-cart-button');
+            addToCartButton.textContent = 'Add to Cart';
+            addToCartButton.addEventListener('click', () => {
+                addToCart(item);
+            });
+
+            menuDetails.appendChild(menuName);
+            priceAndButton.appendChild(menuPrice);
+            priceAndButton.appendChild(addToCartButton);
+            menuDetails.appendChild(priceAndButton);
+
+            menuCard.appendChild(menuImage);
+            menuCard.appendChild(menuDetails);
+
+            menuSection.appendChild(menuCard);
+        });
+    }
+
+
+        // Function to show the cart
+        function showCart() {
+            const cartContainer = document.getElementById('cartContainer');
+            cartContainer.classList.add('show-cart');
+        }
+
+        // Function to hide the cart
+        function hideCart() {
+            const cartContainer = document.getElementById('cartContainer');
+            cartContainer.classList.remove('show-cart');
+        }
+
+        // Function to add an item to the cart
+        function addToCart(item) {
+            // Your logic to add items to the cart
+            // ...
+            let cartItems = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
+
+            const itemWithCountAndPrice = { ...item, itemCount: 1, totalPrice: parseFloat(item.price.slice(1)) };
+            cartItems.push(itemWithCountAndPrice);
+
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+            
+
+            // Show the cart when an item is added
+            showCart();
+        }
+        displayMenu(menuData);
+
+
+
+
+        // Function to update the cart when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartContainer = document.getElementById('cartItems');
+
+            let totalItems = 1;
+            let totalPrice = 0;
+
+            cartItems.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('item');
+
+                const itemDetails = document.createElement('div');
+                itemDetails.classList.add('item-details');
+                itemDetails.innerHTML = `
+                <button class="delete" onclick="deleteItem()">X</button>
+                    <br>
+
+                    <div class="item-content">
+                    <div class="left-cart">
+                        <img src="${item.image}" alt="${item.name}" class="item-img">  
+                    </div>
+                    <div class="right-cart">
+                        <h3>${item.name}</h3>
+                        <p>Price: ${item.price}</p>
+                    </div>
+                    </div>
+                    
+                    <div class="count">
+                        <button class="remove" onclick="decreaseCount()">-</button>
+                        <span class="itemCount"></span>
+                        <span class="individualCount">1</span>
+                        <button class="add" onclick="increaseCount()">+</button>
+                    </div>
+                    <br>
+                    <hr>
+                `;
+                cartItem.appendChild(itemDetails);
+
+                totalPrice += parseFloat(item.price); // Ensure price is parsed to float
+
+                document.getElementById('cartItems').appendChild(cartItem);
+            });
+
+            updateCart(); // Call to ensure initial values are set correctly
+        });
+
+    
+
+        let totalPrice = 0;
+
+function increaseCount(price) {
+    const individualCountSpan = event.target.parentNode.querySelector('.individualCount');
+    const itemCountSpan = document.getElementById('totalItems');
+
+    const individualCount = parseInt(individualCountSpan.textContent) + 1;
+    const itemCount = parseInt(itemCountSpan.textContent) + 1;
+
+    individualCountSpan.textContent = individualCount;
+    itemCountSpan.textContent = itemCount;
+    totalPrice += parseFloat(price);
+
+    updateCart();
+}
+
+function decreaseCount(price) {
+    const individualCountSpan = event.target.parentNode.querySelector('.individualCount');
+    const itemCountSpan = document.getElementById('totalItems');
+
+    let individualCount = parseInt(individualCountSpan.textContent);
+    let itemCount = parseInt(itemCountSpan.textContent);
+
+    if (individualCount > 1) {
+        individualCount--;
+        itemCount--;
+        individualCountSpan.textContent = individualCount;
+        itemCountSpan.textContent = itemCount;
+        totalPrice -= parseFloat(price);
+        updateCart();
+    }
+}
+
+function updateCart() {
+    const totalPriceElement = document.getElementById('totalPrice');
+    totalPriceElement.textContent = totalPrice.toFixed(2);
+}
+
+function deleteItem() {
+    const item = event.target.parentNode.parentNode;
+    const itemPrice = parseFloat(item.querySelector('p').textContent.split(':')[1].trim()); // Extract price from item
+    const individualCount = parseInt(item.querySelector('.individualCount').textContent);
+
+    totalPrice -= individualCount * itemPrice;
+    item.remove();
+    updateCart();
+    localStorage.clear();
+}
+
+function addItem() {
+    window.location.href = 'menu.html';
+}
+
+function reserveNow() {
+    window.location.href = 'reservation.html';
+}
+
+
+            // Attach click event listeners to the "Add to Cart" buttons
+            const addToCartButtons = document.querySelectorAll('.add-to-cart-button');
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const itemName = button.parentNode.parentNode.querySelector('.menu-name').textContent;
+                    const selectedItem = menuData.find(item => item.name === itemName);
+                    if (selectedItem) {
+                        addToCart(selectedItem);
+                    }
+                });
+            });
+        
+    </script>
+
+      <!------------------------------ Footer ------------------------------->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="src/footer.png" alt="Your Company Logo">
+      </div>
+      <div class="footer-links">
+        <ul>
+          <li><a href="#"><b>CONTACT US</b></a></li>
+          <li><a href="#">info@eatTrek.com</a></li>
+          <li><a href="#">123-456-7890</a></li>
+          
+        </ul>
+      
+
+      <ul>
+        <li><a href="#"><b>ABOUT US</b></a></li>
+        <li><a href="#">FQA's</a></li>
+        <li><a href="#">Privacy Policies</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Help</a></li>
+      </ul>
+    
+
+    <ul>
+      <li><a href="#">Subscribe to our newsletter</a></li>
+      <li><a href="#">Download Our App</a></li>
+      <li><a href="#">Accessibilty</a></li>
+      <li><a href="#">Career</a></li>
+      <li><a href="#">Blog</a></li>
+    </ul>
+  </div>
+ 
+      <hr>
+      <div class="footer-info">
+        <div class="social-media">
+          <a>
+            <img src="src/instagram.png" alt="">
+          </a>
+
+      
+          <a>
+            <img src="src/facebook.png" alt="">
+          </a>
+
+
+          <a>
+            <img src="src/twitter.png" alt="">
+          </a>
+
+          
+          <a>
+            <img src="src/linkedIn.png" alt="">
+          </a>
+
+          <a>
+            <img src="src/youtube.png" alt="">
+          </a>
+        </div>
+        <p>© 2023 eatTrek, All rights reserved</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+    </body>
+</html>

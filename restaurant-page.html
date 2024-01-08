@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurants Page</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      * {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .image {
+        position: relative;
+      }
+
+      .restaurantImage {
+        width: 100%;
+        max-height: 300px;
+        height: auto;
+        object-fit: cover;
+      }
+
+      .heartIcon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 50px;
+        height: auto;
+      }
+
+      .details {
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      .details h1,
+      .star-icon {
+        display: inline;
+        vertical-align: middle;
+      }
+
+      .star-icon {
+        font-size: 24px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+
+      p {
+        text-align: center;
+        padding: 20px;
+        margin: 20px;
+      }
+
+      .reviews {
+        text-align: center;
+        padding: 40px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+      .reviews h1 {
+        margin-bottom: 20px;
+      }
+
+      .review-slider {
+        overflow: hidden;
+        margin: 0 auto; /* Center the slider */
+        width: 90%; /* Set the width of the slider */
+      }
+
+      .review-container {
+        display: flex;
+        transition: transform 0.5s ease;
+      }
+
+      .review-card {
+        flex: 0 0 calc((100% / 3) - 15px); /* Adjusted flex basis to include space between cards */
+        margin-right: 15px; /* Added margin to create space between cards */
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        position: relative;
+      }
+
+      .image-holder {
+        width: 70px;
+        height: 70px;
+        background-color: #ddd;
+        margin-right: 10px;
+        border-radius: 50%;
+        background-size: cover;
+      }
+
+      .reviewer-name {
+        font-weight: bold;
+        margin-bottom: 5px;
+        position: absolute;
+        top: 45px;
+        right: 130px;
+      }
+
+      .review-content {
+        margin-bottom: 10px;
+        margin-left: 85px;
+        text-align: left;
+        /* width: 80%; */
+      }
+
+      .enter-review {
+        margin-top: 20px;
+        position: relative;
+      }
+
+      textarea {
+        width: 45%;
+        padding: 60px;
+        margin-top: 40px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-sizing: border-box;
+        resize: vertical;
+      }
+
+      .icons {
+        position: absolute;
+        bottom: 10px;
+        right: 350px;
+        display: flex;
+        align-items: center;
+      }
+
+      .icons img {
+        width: 40px;
+        margin-left: 20px;
+        cursor: pointer;
+      }
+
+      .chef {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        padding: 20px;
+        margin-top: 20px;
+      }
+
+      .chef-column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+        width: 250px;
+      }
+
+      .chef-name {
+        font-weight: bold;
+        margin-top: 20px;
+        margin-bottom: 15px;
+      }
+
+      .chef-description {
+        text-align: left;
+      }
+      h1 {
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .arrowIcon {
+        width: 20px;
+        cursor: pointer;
+        position: absolute;
+        margin: 30px;
+        top: 35%;
+        transform: translateY(-50%);
+        font-size: 24px;
+        color: #333;
+        z-index: 1; /* Ensure arrows are above the reviews */
+      }
+
+      .prevArrow {
+        left: 10px;
+      }
+
+      .nextArrow {
+        right: 10px;
+      }
+      @media only screen and (max-width: 768px) {
+        .review-card {
+          flex: 0 0 calc((100% / 1) - 15px); /* Adjusted flex basis to include space between cards */
+            margin-right: 15px; /* Added margin to create space between cards */
+        }
+        textarea {
+          max-width: 100%;
+        }
+        .icons {
+          right: 180px;
+        }
+        .icons img {
+          width: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-left">
+        <a href="homepage.html"><img src="src/et.png" alt="Restaurant Icon" class="restaurant-icon"></a> 
+      </div>
+      <div class="nav-right" id="navLinks">
+        <img
+          src="src/cancel icon.png"
+          alt="cancel icon"
+          class="cancelIcon"
+          onclick="hideMenu()"
+        />
+        <a href="menu.html" class="nav-link">Menu</a>
+        <a href="reservation.html" class="nav-link">Reservation</a>
+        <a href="menu-cart.html" class="text"
+          ><img
+            src="src/Menu Cart.png"
+            alt="Cart Icon"
+            class="language-icon"
+          />Cart</a
+        >
+      </div>
+      <img
+        src="src/menu icon.png"
+        alt="hamburger menu"
+        class="icon"
+        onclick="showMenu()"
+      />
+    </nav>
+
+    <section class="image">
+      <img
+        src="src/Ivy Terrace.jpg"
+        alt="Restaurant Image"
+        srcset=""
+        class="restaurantImage"
+      />
+      <img src="src/Heart Icon.png" alt="" class="heartIcon" />
+    </section>
+
+    <section class="details">
+      <h1><b>Details</b></h1>
+      <div class="star-icon">4.5 &#9733;</div>
+      <p>
+        Ivy Terrace, where nature and culinary craftsmanship harmoniously blend
+        to create an enchanting dining experience. Nestled in a lush,
+        picturesque setting, Ivy Terrace is renowned for its unique charm and
+        inviting ambiance. What sets this restaurant apart is its specialty in
+        offering a diverse menu inspired by the beauty of the outdoors. From
+        farm-to-table delicacies to creatively crafted dishes, Ivy Terrace
+        prides itself on a fusion of flavors that tantalize the palate. Guests
+        are invited to savor a memorable meal surrounded by natural beauty,
+        making it an exceptional destination for those seeking an exquisite
+        blend of ambiance and culinary artistry.
+      </p>
+    </section>
+
+    <section class="reviews">
+      <h1><b>Reviews</b></h1>
+      <div class="review-slider" id="reviewSlider">
+        <div class="review-container"></div>
+        <div class="arrowIcon prevArrow">&#9665;</div>
+        <div class="arrowIcon nextArrow">&#9655;</div>
+      </div>
+      <div class="enter-review">
+        <textarea placeholder="Write your review..."></textarea>
+        <div class="icons">
+          <img
+            src="src/Camera Icon.png"
+            alt="Camera"
+            class="cameraIcon"
+            onclick="uploadImage('review')"
+          />
+          <img src="src/Send Icon.png" alt="Send" class="sendIcon" />
+        </div>
+      </div>
+    </section>
+    <br />
+    <h1><b>Chefs</b></h1>
+    <section class="chef" id="chef"></section>
+    <br />
+    
+  <!------------------------------ Footer ------------------------------->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="src/footer.png" alt="Your Company Logo">
+      </div>
+      <div class="footer-links">
+        <ul>
+          <li><a href="#"><b>CONTACT US</b></a></li>
+          <li><a href="#">info@eatTrek.com</a></li>
+          <li><a href="#">123-456-7890</a></li>
+          
+        </ul>
+      
+
+      <ul>
+        <li><a href="#"><b>ABOUT US</b></a></li>
+        <li><a href="#">FQA's</a></li>
+        <li><a href="#">Privacy Policies</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Help</a></li>
+      </ul>
+    
+
+    <ul>
+      <li><a href="#">Subscribe to our newsletter</a></li>
+      <li><a href="#">Download Our App</a></li>
+      <li><a href="#">Accessibilty</a></li>
+      <li><a href="#">Career</a></li>
+      <li><a href="#">Blog</a></li>
+    </ul>
+  </div>
+ 
+      <hr>
+      <div class="footer-info">
+        <div class="social-media">
+          <a>
+            <img src="src/instagram.png" alt="">
+          </a>
+
+      
+          <a>
+            <img src="src/facebook.png" alt="">
+          </a>
+
+
+          <a>
+            <img src="src/twitter.png" alt="">
+          </a>
+
+          
+          <a>
+            <img src="src/linkedIn.png" alt="">
+          </a>
+
+          <a>
+            <img src="src/youtube.png" alt="">
+          </a>
+        </div>
+        <p>© 2023 eatTrek, All rights reserved</p>
+      </div>
+    </div>
+  </footer>
+   
+
+
+    <!-------------------- JavaScript---------------------------->
+    <script>
+      function createReviewCard(data) {
+        const reviewSlider = document.getElementById("reviewSlider");
+        const reviewContainer = reviewSlider.querySelector(".review-container");
+
+        data.forEach((item) => {
+          const card = document.createElement("div");
+          card.classList.add("review-card");
+
+          const imageHolder = document.createElement("div");
+          imageHolder.classList.add("image-holder");
+          imageHolder.style.backgroundImage = `url('${item.imageUrl}')`;
+          card.appendChild(imageHolder);
+
+          const reviewerName = document.createElement("div");
+          reviewerName.classList.add("reviewer-name");
+          reviewerName.textContent = item.reviewerName;
+          card.appendChild(reviewerName);
+
+          const reviewContent = document.createElement("div");
+          reviewContent.classList.add("review-content");
+          reviewContent.textContent = `"${item.review}"`;
+          card.appendChild(reviewContent);
+
+          const starRating = document.createElement("div");
+          starRating.classList.add("star-icon");
+          starRating.innerHTML = `${item.rating} &#9733;`;
+          card.appendChild(starRating);
+
+          reviewContainer.appendChild(card);
+        });
+      }
+
+      function uploadImage(section) {
+        const imageUrl = prompt(
+          `Enter the image URL for the ${section} section:`
+        );
+        if (imageUrl) {
+          const imageHolder = document.createElement("div");
+          imageHolder.classList.add("image-holder");
+          imageHolder.style.backgroundImage = `url('${imageUrl}')`;
+
+          const sectionContainer = document.getElementById(section);
+          sectionContainer.appendChild(imageHolder);
+        }
+      }
+
+      const reviewData = [
+        {
+          reviewerName: "Emily Anderson",
+          review:
+            "Ivy Terrace is a charming escape within the city. The garden setting is enchanting, and the food is simply exquisite. A must-visit for a serene dining experience.",
+          rating: 4.8,
+          imageUrl: "src/Review/Emily Anderson.jpg",
+        },
+        {
+          reviewerName: "James Mitchell",
+          review:
+            "A delightful evening at Ivy Terrace! The 'Forest Feast' tasting menu was a culinary adventure, and the service was impeccable. Perfect for a special occasion.",
+          rating: 5.0,
+          imageUrl: "src/Review/James Mitchell.jpg",
+        },
+        {
+          reviewerName: "Sophia Carter",
+          review:
+            "Ivy Terrace exceeded expectations! The 'Ivy Garden Salad' was refreshing, and the staff's attention to detail made the evening unforgettable. A hidden gem in the city.",
+          rating: 4.7,
+          imageUrl: "src/Review/Sophia Carter.jpg",
+        },
+        {
+          reviewerName: "Benjamin Turner",
+          review:
+            "A perfect dinner at Ivy Terrace was magical. The outdoor seating surrounded by ivy is a dreamy setting, and the 'Wild Mushroom Risotto' was divine. Can't wait to return!",
+          rating: 4.5,
+          imageUrl: "src/Review/Benjamin.jpg",
+        },
+      ];
+
+      createReviewCard(reviewData);
+
+      
+      function initializeReviewSlider() {
+        const slider = document.querySelector(".review-container");
+        const reviewCards = document.querySelectorAll(".review-card");
+        const cardCount = reviewCards.length;
+        let cardWidth = reviewCards[0].offsetWidth+15;
+        let currentSlide = 0; 
+
+        // Appending additional cards for infinite loop
+        for (let i = 0; i < cardCount; i++) {
+            const clone = reviewCards[i].cloneNode(true);
+            slider.appendChild(clone);
+        }
+
+        function navigateReviewSlider(direction) {
+            currentSlide += direction;
+            const maxSlide = cardCount * 2 - 1; // Double the cards for looping
+            if (currentSlide < 0) {
+                currentSlide = maxSlide;
+            } else if (currentSlide > maxSlide) {
+                currentSlide = 0;
+            }
+
+            const newPosition = -currentSlide * cardWidth;
+            slider.style.transition = "transform 0.5s ease-in-out";
+            slider.style.transform = `translateX(${newPosition}px)`;
+        }
+
+        document.querySelector(".prevArrow").addEventListener("click", () => navigateReviewSlider(-1));
+        document.querySelector(".nextArrow").addEventListener("click", () => navigateReviewSlider(1));
+    }
+
+    initializeReviewSlider();
+
+    
+    // ********************************Chef********************************************
+      const chefData = [
+        {
+          name: "Chef Andrei Petrov",
+          description:
+            "Chef Andrei Petrov is a classically trained chef renowned for his modern twists on traditional French haute cuisine.",
+          imageUrl: "src/Chef/Chef Andrei Petrov.jpg",
+        },
+        {
+          name: "Chef Mei Ling Chen",
+          description:
+            "Chef Mei Ling Chen brings a fusion of Asian flavors and modern techniques to her dishes, creating bold and harmonious flavors",
+          imageUrl: "src/Chef/Chef Mei Ling Chen.jpg",
+        },
+        {
+          name: "Chef Isabella Moreno",
+          description:
+            "Chef Isabella Moreno specializes in Mediterranean cuisine, crafting dishes that capture the essence of the Mediterranean region with fresh, seasonal ingredients.",
+          imageUrl: "src/Chef/Chef Isabella Moreno.jpg",
+        },
+        {
+          name: "Chef Carlos Rodriguez",
+          description:
+            "Chef Carlos Rodriguez is a master of Latin American cuisine, using locally sourced, organic ingredients to celebrate the vibrant and spicy flavors of Latin America.",
+          imageUrl: "src/Chef/Chef Carlos Rodriguez.jpg",
+        },
+      ];
+
+      function createChefSections(data) {
+        const chefSection = document.getElementById("chef");
+
+        data.forEach((chef) => {
+          const chefColumn = document.createElement("div");
+          chefColumn.classList.add("chef-column");
+
+          const imageHolder = document.createElement("div");
+          imageHolder.classList.add("image-holder");
+          imageHolder.style.backgroundImage = `url('${chef.imageUrl}')`;
+          chefColumn.appendChild(imageHolder);
+
+          const chefName = document.createElement("div");
+          chefName.classList.add("chef-name");
+          chefName.textContent = chef.name;
+          chefColumn.appendChild(chefName);
+
+          const chefDescription = document.createElement("div");
+          chefDescription.classList.add("chef-description");
+          chefDescription.textContent = chef.description;
+          chefColumn.appendChild(chefDescription);
+
+          chefSection.appendChild(chefColumn);
+        });
+      }
+
+      createChefSections(chefData);
+
+      
+    </script>
+
+    <script src="script.js"></script>
+  </body>
+</html>

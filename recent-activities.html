@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recent Activity</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+           
+        }
+       h2{
+        text-align: center;
+       }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .col-left,
+        .col-right {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: left;
+            margin-top: 40px;
+           
+           
+        }
+
+        .verticalLine {
+            border-right: 2px solid #ccc; 
+            margin-top: 60px;
+        }
+
+        /* Styles for the card sections */
+        .confirmReservation h2,
+        .cancelReservation h2 {
+            color: #000000;
+            text-align: center;
+            margin: 30px;
+        }
+
+        .confirmReservation h4,
+        .cancelReservation h4 {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .card {
+            margin-bottom: 15px;
+            
+        }
+        .card-wrapper {
+    margin-top: 20px;
+    background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+}
+.horizontalLine{
+    display: none;
+}
+@media only screen and (max-width: 768px) {
+    .row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .col-left,
+    .col-right {
+        width: 100%;
+        margin-top: 20px;
+    }
+     hr{
+        display: inline;
+        border: 2px solid #ccc; 
+     }
+    .verticalLine {
+        display: none; /* Hide vertical line on smaller screens */
+    }
+}
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <a href="homepage.html"><img src="src/et.png" alt="Restaurant Icon" class="restaurant-icon"></a> 
+        </div>
+        <div class="nav-right" id="navLinks">
+          <img src="src/cancel icon.png" alt="cancel icon" class="cancelIcon" onclick="hideMenu()">
+  
+          <a href="" class="nav-link">Search</a>
+          <a href="homepage.html" class="nav-link">Home</a>
+          <a href="my-profile.html" class="nav-link">My Profile </a>
+          <a href="cancel-reservation.html" class="nav-link"
+            >Cancel reservation</a
+          >
+          <a href="help.html" class="nav-link">Help</a>
+          <a href="login.html" class="nav-link">Logout</a>
+          <a href="language.html" class="text"
+            ><img
+              src="src/language-icon.png"
+              alt="Language Icon"
+              class="language-icon"
+          />Language </a>
+        </div>
+        <img src="src/menu icon.png" alt="hamburger menu" class="icon" onclick="showMenu()">
+      </nav>
+       <br>
+      <h1>Recent Activities</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-left">
+                <h2>Confirm Reservations</h2> <br>
+                <section class="confirmReservation" id="confirmSection">    
+                </section>
+            </div>
+           <div class="verticalLine"></div>
+           <hr class="horizontalLine">
+            <div class="col-right">
+                <h2>Cancel Reservation</h2> <br>
+                <section class="cancelReservation" id="cancelSection">
+                </section>
+            </div>
+        </div>
+    </div>
+ <br>
+ 
+  <!------------------------------ Footer ------------------------------->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="src/footer.png" alt="Your Company Logo">
+      </div>
+      <div class="footer-links">
+        <ul>
+          <li><a href="#"><b>CONTACT US</b></a></li>
+          <li><a href="#">info@eatTrek.com</a></li>
+          <li><a href="#">123-456-7890</a></li>
+          
+        </ul>
+      
+
+      <ul>
+        <li><a href="#"><b>ABOUT US</b></a></li>
+        <li><a href="#">FQA's</a></li>
+        <li><a href="#">Privacy Policies</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Help</a></li>
+      </ul>
+    
+
+    <ul>
+      <li><a href="#">Subscribe to our newsletter</a></li>
+      <li><a href="#">Download Our App</a></li>
+      <li><a href="#">Accessibilty</a></li>
+      <li><a href="#">Career</a></li>
+      <li><a href="#">Blog</a></li>
+    </ul>
+  </div>
+ 
+      <hr>
+
+      <div class="footer-info">
+        <div class="social-media">
+          <a>
+            <img src="src/instagram.png" alt="">
+          </a>
+
+      
+          <a>
+            <img src="src/facebook.png" alt="">
+          </a>
+
+
+          <a>
+            <img src="src/twitter.png" alt="">
+          </a>
+
+          
+          <a>
+            <img src="src/linkedIn.png" alt="">
+          </a>
+
+          <a>
+            <img src="src/youtube.png" alt="">
+          </a>
+        </div>
+        <p>© 2023 eatTrek, All rights reserved</p>
+      </div>
+    </div>
+  </footer>
+
+
+    <script>
+       function createCard(data, containerId) {
+    const container = document.getElementById(containerId);
+
+    data.forEach(item => {
+        const cardWrapper = document.createElement("div");
+        cardWrapper.classList.add("card-wrapper"); // Add a class to the wrapper div
+
+        const card = document.createElement("div");
+        card.classList.add("card");
+
+        const name = document.createElement("h2");
+        name.textContent = item.name;
+
+        const status = document.createElement("h3");
+        status.textContent = item.status;
+
+        const reservationNo = document.createElement("h4");
+        reservationNo.textContent = `Reservation no: ${item.reservationNo}`;
+
+        const paymentMethod = document.createElement("h4");
+        paymentMethod.textContent = item.paymentMethod;
+
+        const message = document.createElement("h4");
+        message.textContent = `"${item.message}"`;
+
+        card.appendChild(name);
+        card.appendChild(status);
+        card.appendChild(reservationNo);
+        card.appendChild(paymentMethod);
+        card.appendChild(message);
+
+        cardWrapper.appendChild(card);
+        container.appendChild(cardWrapper);
+    });
+}
+
+
+        // Sample data for the cards
+        const confirmData = [
+            {
+                name: "Ivvy Terrace",
+                status:"Reservation Confirmed",
+                reservationNo: "E234674",
+                paymentMethod: "Credit card(Paid)",
+                message: "Thank you for securing our reservation, we are looking forward to a wonderful dining experience"
+            },
+            {
+                name: "Harmony Sushi Haven",
+                status:"Reservation Confirmed",
+                reservationNo: "EF65775",
+                paymentMethod: "Pay on Arrival",
+                message: "Thank you for securing our reservation, we are looking forward to a wonderful dining experience"
+            },
+        ];
+
+        const cancelData = [
+            {
+                name: "Ivvy Terrace",
+                status: "Cancelled Reservation",
+                reservationNo: "E345678",
+                paymentMethod: "Your reservation for 9/17/2023 ,8:00 PM has been canceled. Your refunded amount is $28.",
+                message: "We are sorry to hear that you have canceled your reservation. If you have any feedback, please let us know."
+            },
+           
+        ];
+
+        // Create cards for the confirm and cancel sections
+        createCard(confirmData, "confirmSection");
+        createCard(cancelData, "cancelSection");
+    </script>
+
+ <script src="script.js"></script>
+</body>
+</html>
