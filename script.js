@@ -26,7 +26,7 @@ function goBackToHomepage() {
 //////////////////Navigation---JavaScript to toggle the mobile menu///////////////////////////
 function showMenu() {
   var navLinks = document.getElementById("navLinks");
-  navLinks.classList.toggle("active");
+  navLinks.classList.add("active");
 }
 
 function hideMenu() {
@@ -38,7 +38,7 @@ function hideMenu() {
 function toggleSearch() {
   const searchLabel = document.getElementById("search");
   if (
-    searchLabel.style.dispaly === "none" ||
+    searchLabel.style.display === "none" ||
     searchLabel.style.display === ""
   ) {
     searchLabel.style.display = "block";
@@ -46,3 +46,14 @@ function toggleSearch() {
     searchLabel.style.display = "none";
   }
 }
+
+
+function toggleColor(heartIcon) {
+  // Toggle the 'active' class to change the color
+  heartIcon.classList.toggle('active');
+}
+
+
+
+
+

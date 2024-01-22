@@ -32,7 +32,6 @@
       .slider-container {
         display: flex;
         width: 100%;
-        transition: transform 0.5s ease;
         position: relative;
         padding-bottom: 50px;
         align-items: center;
@@ -52,9 +51,9 @@
         color: #333;
         border-radius: 8px;
         box-shadow: inset 0px 5px 8px rgba(0, 0, 0, 0.2);
-        width: 50vh;
+        width: 25%;
         height: 30vh;
-        transition: transform 0.5s ease, z-index 0.5s ease; /* Add z-index transition */
+        transition: transform 0.5s ease, z-index 0.5s ease; 
         position: absolute;
       }
 
@@ -82,7 +81,8 @@
         cursor: pointer;
         position: absolute;
         top: 35%;
-        font-size: 24px;
+        font-size: 34px;
+        font-weight: bold;
         color: #333;
         z-index: 100;
         border-radius: 50%;
@@ -241,9 +241,10 @@
         cursor: pointer;
         position: absolute;
         margin: 30px;
-        top: 40%;
+        top: 43%;
         transform: translateY(-50%);
-        font-size: 24px;
+        font-size: 30px;
+        font-weight: bold;
         color: #333;
         z-index: 100; /* Ensure arrows are above the reviews */
       }
@@ -265,7 +266,7 @@
   }
 
   .arrowIconPopular {
-    font-size: 20px; /* Adjusted the font size for smaller screens */
+    font-size: 26px; /* Adjusted the font size for smaller screens */
   }
 }
       /********************* Restaurant Near by you Section ***************************/
@@ -359,7 +360,7 @@
       <div class="nav-right" id="navLinks">
         <img src="src/cancel icon.png" alt="cancel icon" class="cancelIcon" onclick="hideMenu()">
 
-        <a href="#" onclick="toggleSearch()" class="nav-link">Search</a>
+        <a href="javascript:void(0)" class="nav-link" onclick="toggleSearch()">Search</a>
         <div id="search">
           <input type="text" id="restaurantSearchInput" placeholder="Search Restaurant.." oninput="searchRestuarants(this.value)">
         </div>
@@ -381,6 +382,8 @@
       <img src="src/menu icon.png" alt="hamburger menu" class="icon" onclick="showMenu()">
     </nav>
   
+   
+
         
     <!------------------------------ Step by Step Dining Slider  ---------------------------------------->
 
@@ -388,7 +391,7 @@
       <h2>Step by Step Dining</h2>
       <div class="half-page-slider">
         <div class="arrowIcon prevArrow" onclick="navigateSlider(-1)">
-          &#9665;
+          &lt;
         </div>
         <div class="slider-container">
           <!-- Slide 1 -->
@@ -417,7 +420,7 @@
           </div>
         </div>
         <div class="arrowIcon nextArrow" onclick="navigateSlider(1)">
-          &#9655;
+          &gt;
         </div>
       </div>
     </section>
@@ -497,10 +500,10 @@
     <div id="PopularSlider" class="popular-slider">
       <div class="popular-container"></div>
       <div class="arrowIconPopular prevArrowPopular" >
-        &#9665;
+        &lt;
       </div>
       <div class="arrowIconPopular nextArrowPopular">
-        &#9655;
+        &gt;
       </div>
     </div>
   </section>
@@ -673,7 +676,7 @@
 
     function navigatePopularSlider(direction) {
       currentSlide += direction;
-      const maxSlide = cardCount * 2 - 1; // Double the cards for looping
+      const maxSlide = cardCount * 2 - 6; // Double the cards for looping
       if (currentSlide < 0) {
         currentSlide = maxSlide;
       } else if (currentSlide > maxSlide) {

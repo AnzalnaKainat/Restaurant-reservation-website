@@ -15,18 +15,16 @@
             
         }
         h1{
-            margin: 20px;
+            margin: 50px auto 30px auto;
         }
         .reservation, .payment {
             width: 100%;
-            /* max-width: 600px; Adjust as needed */
             margin: 0 auto;
-            padding: 20px;
-            box-sizing: border-box;
-            /* display: inline-block; */
-            
+            box-sizing: border-box; 
         }
-
+        .payment {
+          padding-bottom: 30px;
+        }
         .seating input,
         .data input,
         .paymentInfo input,
@@ -49,6 +47,9 @@
            
         }
 
+        .data {
+          margin: 0 auto;
+        }
         .data input,
         .data textarea {
             width: 30%;
@@ -75,9 +76,7 @@
 
         .paymentInfo input {
             margin-top: 20px;
-            width: 40%; /* Adjust as needed */
-            /* display: flex; */
-            /* flex-direction: row; */
+            width: 40%; 
             box-sizing: border-box;
             margin-left: 60px;
             height: 35px;
@@ -86,8 +85,7 @@
         }
          button{
             display: block;
-            margin: 0 auto;
-            margin-top: 10px;
+            margin: 10px auto;
             width: 13%;
             height: 40px;
             border-radius: 10px;
@@ -146,16 +144,16 @@
 
         .modal {
             position: absolute;
-            top: 50%;
+            top: 60%;
             left: 50%;
             transform: translate(-50%, -50%);
             width: 40%;
             background-color: white;
             padding: 4rem;
             border-radius: 10px;
-            /* border: 6px solid  #FBAC08;  */
+            border: 6px solid  #FBAC08; 
             box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
-            z-index: 10;
+            z-index: 501;
         }
 
        .overlay {
@@ -164,9 +162,9 @@
             left: 0;
             width: 100%;
             height: 200vh;
-            background-color: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(3px);
-             z-index: 5;
+            background-color: rgba(190, 190, 190, 0.1);
+            backdrop-filter: blur(4px);
+             z-index: 500;
         }
         @media only screen and (max-width: 768px) {
   .reservation,
@@ -228,7 +226,7 @@
           />
           <a href="menu.html" class="nav-link">Menu</a>
           <a href="reservation.html" class="nav-link">Reservation</a>
-          <a href="menu-cart.html" class="text"
+          <a href="" class="text"
             ><img
               src="src/Menu Cart.png"
               alt="Cart Icon"
