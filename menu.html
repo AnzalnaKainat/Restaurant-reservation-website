@@ -821,9 +821,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                     
                     <div class="count">
-                        <button class="remove" onclick="decreaseCount(event)" data-price="${item.price}">-</button>
+                        <button class="remove" onclick="decreaseCount(event)">-</button>
                         <span class="individualCount">${item.itemCount}</span>
-                        <button class="add" onclick="increaseCount(event)" data-price="${item.price}">+</button>
+                        <button class="add" onclick="increaseCount(event)">+</button>
                     </div>
                     <br>
                     <hr>
@@ -855,9 +855,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const itemCountSpan = document.getElementById("totalItems");
 
 
-  let individualCount = parseInt(individualCountSpan.textContent) + 1;
-
-  individualCountSpan.textContent = individualCount;
+  individualCountSpan.textContent = parseInt(individualCountSpan.textContent) + 1;
   itemCountSpan.textContent = parseInt(itemCountSpan.textContent) + 1;
 
 }
@@ -866,7 +864,6 @@ function decreaseCount(event) {
   const button = event.currentTarget;
   const individualCountSpan = button.parentNode.querySelector(".individualCount");
   const itemCountSpan = document.getElementById("totalItems");
-  
 
   
   let individualCount = parseInt(individualCountSpan.textContent);
@@ -878,12 +875,11 @@ function decreaseCount(event) {
 
     individualCountSpan.textContent = individualCount;
     itemCountSpan.textContent = itemCount;
-
   }
 }
 
 function deleteItem() {
-  // Get the current cart items from local storage
+ 
   const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 
   const cartItem = event.target.closest(".item");

@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="styles.css" />
     <style>
       /********************* Step By Step Dining Slider ***************************/
-      body{
-        font-family: 'Arial Rounded MT';
+      body {
+        font-family: "Arial Rounded MT";
       }
       .slider {
         height: 55vh;
         background-color: #d9d9d9;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        text-align: center; /* Center the content horizontally */
+        text-align: center; 
         overflow: hidden;
       }
 
@@ -26,7 +26,6 @@
         justify-content: center;
         align-items: center;
         margin-top: 30px;
-        /* padding-bottom: 50px; */
       }
 
       .slider-container {
@@ -36,9 +35,8 @@
         padding-bottom: 50px;
         align-items: center;
         justify-content: center;
-  
       }
-      .slider-container h4{
+      .slider-container h4 {
         font-weight: bold;
         margin-bottom: 25px;
         margin-top: 10px;
@@ -53,7 +51,7 @@
         box-shadow: inset 0px 5px 8px rgba(0, 0, 0, 0.2);
         width: 25%;
         height: 30vh;
-        transition: transform 0.5s ease, z-index 0.5s ease; 
+        transition: transform 0.5s ease, z-index 0.5s ease;
         position: absolute;
       }
 
@@ -100,26 +98,25 @@
       }
 
       @media screen and (max-width: 700px) {
-        .slider{
+        .slider {
           max-height: 70vh;
         }
-            .half-page-slider {
-                max-height: 100%;
-                margin: auto;
-            }
-
-            .slide{
-                max-width: 30%;
-                font-size: 12px;
-                overflow: hidden;
-            }
-
-
-            .slider-container {
-                max-width: 100%;
-                height: 200vh;
-            }
+        .half-page-slider {
+          max-height: 100%;
+          margin: auto;
         }
+
+        .slide {
+          max-width: 30%;
+          font-size: 12px;
+          overflow: hidden;
+        }
+
+        .slider-container {
+          max-width: 100%;
+          height: 200vh;
+        }
+      }
 
       /********************* Spotlight Insights ***************************/
       .spotInsights h4 {
@@ -133,16 +130,16 @@
 
       .spotInsights .col-left,
       .spotInsights .col-right {
-        width: 50%; /* Adjust the width as needed, leaving some space for margins */
-        display: flex; /* Use flexbox for the columns */
-        align-items: center; /* Center items vertically within the columns */
+        width: 50%; 
+        display: flex; 
+        align-items: center; 
       }
 
       .spotInsights img {
-        max-width: 60%; /* Allow the image to take the full width of its container */
+        max-width: 60%; 
         object-fit: cover;
-        border-radius: 8px; /* Add border-radius for rounded corners */
-        margin-right: 40px; /* Add some spacing to the right of the image */
+        border-radius: 8px; 
+        margin-right: 40px; 
       }
 
       .spotInsights .col-content {
@@ -162,32 +159,30 @@
         width: 80%;
       }
       @media only screen and (max-width: 700px) {
-  .spotInsights .col {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+        .spotInsights .col {
+          flex-direction: column;
+          align-items: flex-start;
+        }
 
-  .spotInsights .col-left,
-  .spotInsights .col-right {
-    width: 100%;
-    margin-bottom: 20px;
-  }
+        .spotInsights .col-left,
+        .spotInsights .col-right {
+          width: 100%;
+          margin-bottom: 20px;
+        }
 
-  .spotInsights img {
-    max-width: 85%;
-    max-height: 50vh;
-    margin-right: 0;
-    margin-bottom: 20px;
-  }
+        .spotInsights img {
+          max-width: 85%;
+          max-height: 50vh;
+          margin-right: 0;
+          margin-bottom: 20px;
+        }
 
-  .spotInsights .col-content {
-    margin-left: 0;
-    margin-bottom: 50px;
-    width: 100%;
-  }
-}
-
-      
+        .spotInsights .col-content {
+          margin-left: 0;
+          margin-bottom: 50px;
+          width: 100%;
+        }
+      }
 
       /********************* Popular Restaurant Section ***************************/
       .popular-restaurants {
@@ -199,8 +194,8 @@
 
       .popular-slider {
         overflow: hidden;
-        margin: 0 auto; /* Center the slider */
-        width: 90%; /* Set the width of the slider */
+        margin: 0 auto; 
+        width: 90%; 
       }
 
       .popular-container {
@@ -215,18 +210,16 @@
       }
 
       .restaurant-image {
-        width: 85%; /* Make the image width 100% of the container */
+        width: 85%; 
         height: 140px;
         object-fit: cover;
         border-radius: 8px;
       }
 
       .restaurant-card h5 {
-        /* margin: 10px 30px 0px 0px; */
         text-align: left;
         margin-left: 13px;
         margin-bottom: 0;
-        
       }
 
       .star-rating {
@@ -246,7 +239,7 @@
         font-size: 30px;
         font-weight: bold;
         color: #333;
-        z-index: 100; /* Ensure arrows are above the reviews */
+        z-index: 100; 
       }
 
       .prevArrowPopular {
@@ -258,19 +251,17 @@
       }
 
       @media only screen and (max-width: 768px) {
-  
+        .restaurant-card {
+          flex: 0 0 calc(100% / 3); 
+          margin-bottom: 20px;
+        }
 
-  .restaurant-card {
-    flex: 0 0 calc(100% / 3); /* Adjusted the flex property for two cards per row */
-    margin-bottom: 20px;
-  }
-
-  .arrowIconPopular {
-    font-size: 26px; /* Adjusted the font size for smaller screens */
-  }
-}
+        .arrowIconPopular {
+          font-size: 26px;
+        }
+      }
       /********************* Restaurant Near by you Section ***************************/
-      .All-Restaurants{
+      .All-Restaurants {
         background-color: #f8f9fa;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         text-align: center;
@@ -283,16 +274,15 @@
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-
       }
 
       .custom-card {
         margin: 0 10px 20px 10px;
-        max-width: 400px; 
+        max-width: 400px;
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
-        width: calc(33.333% - 20px); 
+        width: calc(33.333% - 20px);
       }
 
       .custom-image {
@@ -343,12 +333,10 @@
         cursor: pointer;
       }
       @media only screen and (max-width: 700px) {
-  .custom-card {
-    width: calc(100% - 20px); /* Full width for smaller screens */
-  }
-}
-
-
+        .custom-card {
+          width: calc(100% - 20px); 
+        }
+      }
     </style>
   </head>
   <body>
@@ -358,11 +346,23 @@
         <img src="src/et.png" alt="Restaurant Icon" class="restaurant-icon" />
       </div>
       <div class="nav-right" id="navLinks">
-        <img src="src/cancel icon.png" alt="cancel icon" class="cancelIcon" onclick="hideMenu()">
+        <img
+          src="src/cancel icon.png"
+          alt="cancel icon"
+          class="cancelIcon"
+          onclick="hideMenu()"
+        />
 
-        <a href="javascript:void(0)" class="nav-link" onclick="toggleSearch()">Search</a>
+        <a href="javascript:void(0)" class="nav-link" onclick="toggleSearch()"
+          >Search</a
+        >
         <div id="search">
-          <input type="text" id="restaurantSearchInput" placeholder="Search Restaurant.." oninput="searchRestuarants(this.value)">
+          <input
+            type="text"
+            id="restaurantSearchInput"
+            placeholder="Search Restaurant.."
+            oninput="searchRestuarants(this.value)"
+          />
         </div>
 
         <a href="homepage.html" class="nav-link">Home</a>
@@ -377,22 +377,23 @@
             src="src/language-icon.png"
             alt="Language Icon"
             class="language-icon"
-        />Language </a>
+          />Language
+        </a>
       </div>
-      <img src="src/menu icon.png" alt="hamburger menu" class="icon" onclick="showMenu()">
+      <img
+        src="src/menu icon.png"
+        alt="hamburger menu"
+        class="icon"
+        onclick="showMenu()"
+      />
     </nav>
-  
-   
 
-        
     <!------------------------------ Step by Step Dining Slider  ---------------------------------------->
 
     <section class="slider">
       <h2>Step by Step Dining</h2>
       <div class="half-page-slider">
-        <div class="arrowIcon prevArrow" onclick="navigateSlider(-1)">
-          &lt;
-        </div>
+        <div class="arrowIcon prevArrow" onclick="navigateSlider(-1)">&lt;</div>
         <div class="slider-container">
           <!-- Slide 1 -->
           <div class="slide prev">
@@ -419,9 +420,7 @@
             </p>
           </div>
         </div>
-        <div class="arrowIcon nextArrow" onclick="navigateSlider(1)">
-          &gt;
-        </div>
+        <div class="arrowIcon nextArrow" onclick="navigateSlider(1)">&gt;</div>
       </div>
     </section>
 
@@ -481,9 +480,7 @@
         </div>
 
         <div class="col-right">
-          <a href="favorites.html"
-            ><img src="src/Favorite.jpg" alt=""
-          /></a>
+          <a href="favorites.html"><img src="src/Favorite.jpg" alt="" /></a>
           <div class="col-content">
             <h5>Favorites</h5>
             <p>Explore all your preferred restaurants in one place.</p>
@@ -494,220 +491,210 @@
 
     <br />
 
-     <!------------------------------ Popular Restaurant ---------------------------------------->
-  <section class="popular-restaurants">
-    <h2>Popular Restaurants</h2>
-    <div id="PopularSlider" class="popular-slider">
-      <div class="popular-container"></div>
-      <div class="arrowIconPopular prevArrowPopular" >
-        &lt;
+    <!------------------------------ Popular Restaurant ---------------------------------------->
+    <section class="popular-restaurants">
+      <h2>Popular Restaurants</h2>
+      <div id="PopularSlider" class="popular-slider">
+        <div class="popular-container"></div>
+        <div class="arrowIconPopular prevArrowPopular">&lt;</div>
+        <div class="arrowIconPopular nextArrowPopular">&gt;</div>
       </div>
-      <div class="arrowIconPopular nextArrowPopular">
-        &gt;
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <script>
-    const restaurants = [
-      {
-        name: "Nebula Nector",
-        image: "src/Nebula Nectar.jpg",
-        rating: "4.5",
-        link: "restaurant-page.html",
-      },
-      {
-        name: "Bella Itaila Trattoria",
-        image: "src/Bella Italia Trattoria.jpg",
-        rating: "4.8",
-        link: "https://example.com/bella",
-      },
-      {
-        name: "Fusion",
-        image: "src/Restaurant 1.jpg",
-        rating: "5.0",
-        link: "https://example.com/nebula",
-      },
-      {
-        name: "Ivy Terrace",
-        image: "src/Ivy Terrace.jpg",
-        rating: "4.8",
-        link: "https://example.com/nebula",
-      },
-      {
-        name: "Elysian Eats",
-        image: "src/Elysian Eats.jpg",
-        rating: "4.5",
-        link: "https://example.com/nebula",
-      },
-      {
-        name: "Savvy",
-        image: "src/Savvy.jpg",
-        rating: "4.6",
-        link: "https://example.com/nebula",
-      },
-      {
-        name: "Serene",
-        image: "src/Serene.jpg",
-        rating: "4.8",
-        link: "https://example.com/nebula",
-      },
-      {
-        name: "The Golden Wok",
-        image: "src/The Golden Wok.jpg",
-        rating: "4.6",
-        link: "https://example.com/nebula",
-      },
-      {
-        name: "Fusion",
-        image: "src/Restaurant 1.jpg",
-        rating: "5.0",
-        link: "https://example.com/nebula",
-      },
-      {
-        name: "Ivy Terrace",
-        image: "src/Ivy Terrace.jpg",
-        rating: "4.8",
-        link: "https://example.com/nebula",
-      },
-      {
-        name: "Elysian Eats",
-        image: "src/Elysian Eats.jpg",
-        rating: "4.5",
-        link: "https://example.com/nebula",
-      },
-      {
-        name: "Savvy",
-        image: "src/Savvy.jpg",
-        rating: "4.6",
-        link: "https://example.com/nebula",
-      },
-      {
-        name: "Serene",
-        image: "src/Serene.jpg",
-        rating: "4.8",
-        link: "https://example.com/nebula",
-      },
-      // Add links for other restaurants
-      {
-        name: "Savvy",
-        image: "src/Savvy.jpg",
-        rating: "4.6",
-        link: "https://example.com/nebula",
-      },
-      {
-        name: "Serene",
-        image: "src/Serene.jpg",
-        rating: "4.8",
-        link: "https://example.com/nebula",
-      },
-      {
-        name: "The Golden Wok",
-        image: "src/The Golden Wok.jpg",
-        rating: "4.6",
-        link: "https://example.com/nebula",
-      },
-      {
-        name: "Fusion",
-        image: "src/Restaurant 1.jpg",
-        rating: "5.0",
-        link: "https://example.com/nebula",
-      },
-    ];
+    <script>
+      const restaurants = [
+        {
+          name: "Nebula Nector",
+          image: "src/Nebula Nectar.jpg",
+          rating: "4.5",
+          link: "restaurant-page.html",
+        },
+        {
+          name: "Bella Itaila Trattoria",
+          image: "src/Bella Italia Trattoria.jpg",
+          rating: "4.8",
+          link: "https://example.com/bella",
+        },
+        {
+          name: "Fusion",
+          image: "src/Restaurant 1.jpg",
+          rating: "5.0",
+          link: "https://example.com/nebula",
+        },
+        {
+          name: "Ivy Terrace",
+          image: "src/Ivy Terrace.jpg",
+          rating: "4.8",
+          link: "https://example.com/nebula",
+        },
+        {
+          name: "Elysian Eats",
+          image: "src/Elysian Eats.jpg",
+          rating: "4.5",
+          link: "https://example.com/nebula",
+        },
+        {
+          name: "Savvy",
+          image: "src/Savvy.jpg",
+          rating: "4.6",
+          link: "https://example.com/nebula",
+        },
+        {
+          name: "Serene",
+          image: "src/Serene.jpg",
+          rating: "4.8",
+          link: "https://example.com/nebula",
+        },
+        {
+          name: "The Golden Wok",
+          image: "src/The Golden Wok.jpg",
+          rating: "4.6",
+          link: "https://example.com/nebula",
+        },
+        {
+          name: "Fusion",
+          image: "src/Restaurant 1.jpg",
+          rating: "5.0",
+          link: "https://example.com/nebula",
+        },
+        {
+          name: "Ivy Terrace",
+          image: "src/Ivy Terrace.jpg",
+          rating: "4.8",
+          link: "https://example.com/nebula",
+        },
+        {
+          name: "Elysian Eats",
+          image: "src/Elysian Eats.jpg",
+          rating: "4.5",
+          link: "https://example.com/nebula",
+        },
+        {
+          name: "Savvy",
+          image: "src/Savvy.jpg",
+          rating: "4.6",
+          link: "https://example.com/nebula",
+        },
+        {
+          name: "Serene",
+          image: "src/Serene.jpg",
+          rating: "4.8",
+          link: "https://example.com/nebula",
+        },
+        {
+          name: "Savvy",
+          image: "src/Savvy.jpg",
+          rating: "4.6",
+          link: "https://example.com/nebula",
+        },
+        {
+          name: "Serene",
+          image: "src/Serene.jpg",
+          rating: "4.8",
+          link: "https://example.com/nebula",
+        },
+        {
+          name: "The Golden Wok",
+          image: "src/The Golden Wok.jpg",
+          rating: "4.6",
+          link: "https://example.com/nebula",
+        },
+        {
+          name: "Fusion",
+          image: "src/Restaurant 1.jpg",
+          rating: "5.0",
+          link: "https://example.com/nebula",
+        },
+      ];
 
-    let currentSlide = 0;
-    function createRestaurantCard(restaurant) {
-      const card = document.createElement("div");
-      card.classList.add("restaurant-card");
+      let currentSlide = 0;
+      function createRestaurantCard(restaurant) {
+        const card = document.createElement("div");
+        card.classList.add("restaurant-card");
 
-      function createStarRating(rating) {
-        const starRating = document.createElement("span");
-        starRating.classList.add("star-rating");
-        starRating.innerHTML = `&#9733; ${rating}`;
-        return starRating;
+        function createStarRating(rating) {
+          const starRating = document.createElement("span");
+          starRating.classList.add("star-rating");
+          starRating.innerHTML = `&#9733; ${rating}`;
+          return starRating;
+        }
+
+        const imageContainer = document.createElement("div");
+        imageContainer.classList.add("restaurant-image-container");
+
+        const imageLink = document.createElement("a");
+        imageLink.href = restaurant.link;
+
+        const image = document.createElement("img");
+        image.src = restaurant.image;
+        image.alt = restaurant.name;
+        image.classList.add("restaurant-image");
+
+        imageLink.appendChild(image);
+        imageContainer.appendChild(imageLink);
+
+        const name = document.createElement("h5");
+        name.textContent = restaurant.name;
+
+        const starRating = createStarRating(restaurant.rating);
+
+        card.appendChild(imageContainer);
+        card.appendChild(name);
+        card.appendChild(starRating);
+
+        return card;
       }
 
-      const imageContainer = document.createElement("div");
-      imageContainer.classList.add("restaurant-image-container");
+      function initializePopularSlider() {
+        const slider = document.querySelector(".popular-container");
+        restaurants.forEach((restaurant) => {
+          const card = createRestaurantCard(restaurant);
+          slider.appendChild(card);
+        });
 
-      const imageLink = document.createElement("a");
-      imageLink.href = restaurant.link;
+        const cards = document.querySelectorAll(".restaurant-card");
+        const cardCount = cards.length;
+        let cardWidth = cards[0].offsetWidth;
 
-      const image = document.createElement("img");
-      image.src = restaurant.image;
-      image.alt = restaurant.name;
-      image.classList.add("restaurant-image");
+        // Appending additional cards for infinite loop
+        for (let i = 0; i < cardCount; i++) {
+          const clone = cards[i].cloneNode(true);
+          slider.appendChild(clone);
+        }
 
-      imageLink.appendChild(image);
-      imageContainer.appendChild(imageLink);
+        function navigatePopularSlider(direction) {
+          currentSlide += direction;
+          const maxSlide = cardCount * 2 - 6; 
+          if (currentSlide < 0) {
+            currentSlide = maxSlide;
+          } else if (currentSlide > maxSlide) {
+            currentSlide = 0;
+          }
 
-      const name = document.createElement("h5");
-      name.textContent = restaurant.name;
+          const newPosition = -currentSlide * cardWidth;
+          slider.style.transition = "transform 0.5s ease-in-out";
+          slider.style.transform = `translateX(${newPosition}px)`;
+        }
 
-      const starRating = createStarRating(restaurant.rating);
-
-      card.appendChild(imageContainer);
-      card.appendChild(name);
-      card.appendChild(starRating);
-
-      return card;
-    }
-
-   
-   
-    function initializePopularSlider() {
-    const slider = document.querySelector(".popular-container");
-    restaurants.forEach((restaurant) => {
-      const card = createRestaurantCard(restaurant);
-      slider.appendChild(card);
-    });
-
-
-    const cards = document.querySelectorAll(".restaurant-card");
-    const cardCount = cards.length;
-    let cardWidth = cards[0].offsetWidth;
-
-    // Appending additional cards for infinite loop
-    for (let i = 0; i < cardCount; i++) {
-      const clone = cards[i].cloneNode(true);
-      slider.appendChild(clone);
-    }
- 
-
-    function navigatePopularSlider(direction) {
-      currentSlide += direction;
-      const maxSlide = cardCount * 2 - 6; // Double the cards for looping
-      if (currentSlide < 0) {
-        currentSlide = maxSlide;
-      } else if (currentSlide > maxSlide) {
-        currentSlide = 0;
+        document
+          .querySelector(".prevArrowPopular")
+          .addEventListener("click", () => navigatePopularSlider(-1));
+        document
+          .querySelector(".nextArrowPopular")
+          .addEventListener("click", () => navigatePopularSlider(1));
       }
 
-      const newPosition = -currentSlide * cardWidth;
-      slider.style.transition = "transform 0.5s ease-in-out";
-      slider.style.transform = `translateX(${newPosition}px)`;
-    }
-
-    document
-      .querySelector(".prevArrowPopular")
-      .addEventListener("click", () => navigatePopularSlider(-1));
-    document
-      .querySelector(".nextArrowPopular")
-      .addEventListener("click", () => navigatePopularSlider(1));
-  }
-
-  initializePopularSlider();
-
-
-  </script>
+      initializePopularSlider();
+    </script>
 
     <!------------------------------ Restaurant Nearby By You Section ---------------------------------------->
-    
+
     <section class="All-Restaurants">
       <h2>Restaurants Nearby You</h2>
-      <div class="restaurant-section" id="restaurantSection">
-      </div>
-      <button class="see-all-button" onclick="seeAllRestaurants()">See All</button>
+      <div class="restaurant-section" id="restaurantSection"></div>
+      <button class="see-all-button" onclick="seeAllRestaurants()">
+        See All
+      </button>
     </section>
 
     <script>
@@ -788,8 +775,6 @@
           const card = createRestaurantCard(restaurant);
           section.appendChild(card);
         });
-     
-
       }
 
       function seeAllRestaurants() {
@@ -798,70 +783,68 @@
 
       initializeRestaurantSection();
     </script>
-    
-  <!------------------------------ Footer ------------------------------->
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-logo">
-        <img src="src/footer.png" alt="Your Company Logo">
-      </div>
-      <div class="footer-links">
-        <ul>
-          <li><a href="#"><b>CONTACT US</b></a></li>
-          <li><a href="#">info@eatTrek.com</a></li>
-          <li><a href="#">123-456-7890</a></li>
-          
-        </ul>
-      
 
-      <ul>
-        <li><a href="#"><b>ABOUT US</b></a></li>
-        <li><a href="#">FQA's</a></li>
-        <li><a href="#">Privacy Policies</a></li>
-        <li><a href="#">Terms of Service</a></li>
-        <li><a href="#">Help</a></li>
-      </ul>
-    
-
-    <ul>
-      <li><a href="#">Subscribe to our newsletter</a></li>
-      <li><a href="#">Download Our App</a></li>
-      <li><a href="#">Accessibilty</a></li>
-      <li><a href="#">Career</a></li>
-      <li><a href="#">Blog</a></li>
-    </ul>
-  </div>
- 
-      <hr>
-      <div class="footer-info">
-        <div class="social-media">
-          <a>
-            <img src="src/instagram.png" alt="">
-          </a>
-
-      
-          <a>
-            <img src="src/facebook.png" alt="">
-          </a>
-
-
-          <a>
-            <img src="src/twitter.png" alt="">
-          </a>
-
-          
-          <a>
-            <img src="src/linkedIn.png" alt="">
-          </a>
-
-          <a>
-            <img src="src/youtube.png" alt="">
-          </a>
+    <!------------------------------ Footer ------------------------------->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="src/footer.png" alt="Your Company Logo" />
         </div>
-        <p>© 2023 eatTrek, All rights reserved</p>
+        <div class="footer-links">
+          <ul>
+            <li>
+              <a href="#"><b>CONTACT US</b></a>
+            </li>
+            <li><a href="#">info@eatTrek.com</a></li>
+            <li><a href="#">123-456-7890</a></li>
+          </ul>
+
+          <ul>
+            <li>
+              <a href="#"><b>ABOUT US</b></a>
+            </li>
+            <li><a href="#">FQA's</a></li>
+            <li><a href="#">Privacy Policies</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+
+          <ul>
+            <li><a href="#">Subscribe to our newsletter</a></li>
+            <li><a href="#">Download Our App</a></li>
+            <li><a href="#">Accessibilty</a></li>
+            <li><a href="#">Career</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+
+        <hr />
+        <div class="footer-info">
+          <div class="social-media">
+            <a>
+              <img src="src/instagram.png" alt="" />
+            </a>
+
+            <a>
+              <img src="src/facebook.png" alt="" />
+            </a>
+
+            <a>
+              <img src="src/twitter.png" alt="" />
+            </a>
+
+            <a>
+              <img src="src/linkedIn.png" alt="" />
+            </a>
+
+            <a>
+              <img src="src/youtube.png" alt="" />
+            </a>
+          </div>
+          <p>© 2023 eatTrek, All rights reserved</p>
+        </div>
       </div>
-    </div>
-  </footer>
-<script src="script.js"></script>
+    </footer>
+    <script src="script.js"></script>
   </body>
 </html>
