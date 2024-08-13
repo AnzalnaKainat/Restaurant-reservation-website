@@ -31,14 +31,13 @@
         width: 50px;
         height: auto;
         cursor: pointer;
-       
-  transition: fill 0.3s ease; /* Smooth transition */
-      }
-   
 
-.heartIcon.active {
-  fill: red; 
-}
+        transition: fill 0.3s ease; /* Smooth transition */
+      }
+
+      .heartIcon.active {
+        fill: red;
+      }
 
       .details {
         padding: 20px;
@@ -78,8 +77,8 @@
 
       .review-slider {
         overflow: hidden;
-        margin: 0 auto; /* Center the slider */
-        width: 90%; /* Set the width of the slider */
+        margin: 0 auto;
+        width: 90%;
       }
 
       .review-container {
@@ -88,8 +87,8 @@
       }
 
       .review-card {
-        flex: 0 0 calc((100% / 3) - 15px); /* Adjusted flex basis to include space between cards */
-        margin-right: 15px; /* Added margin to create space between cards */
+        flex: 0 0 calc((100% / 3) - 15px);
+        margin-right: 15px;
         padding: 15px;
         border: 1px solid #ddd;
         border-radius: 8px;
@@ -108,45 +107,45 @@
       .reviewer-name {
         font-weight: bold;
         margin-bottom: 5px;
-        position: absolute;
-        top: 45px;
-        right: 130px;
-      }
-
-      .review-content {
-        margin-bottom: 10px;
-        margin-left: 85px;
-        text-align: left;
-        /* width: 80%; */
+        display: flex;
+        justify-content: center;
       }
 
       .enter-review {
-        margin-top: 20px;
-        position: relative;
+        display: flex;
+        justify-content: center;
+        padding: 60px 10px;
       }
 
-      textarea {
-        width: 45%;
-        padding: 60px;
-        margin-top: 40px;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        box-sizing: border-box;
-        resize: vertical;
-      }
-
-      .icons {
-        position: absolute;
-        bottom: 10px;
-        right: 350px;
+      .textarea-container {
         display: flex;
         align-items: center;
+        width: 50%;
+        max-width: 600px;
+        border: 1px solid #ccc;
+        border-radius: 15px;
+        overflow: hidden;
       }
 
-      .icons img {
-        width: 40px;
-        margin-left: 20px;
+      .textarea-container textarea {
+        flex: 1;
+        padding: 30px;
+        border: none;
+        resize: none;
+        outline: none;
+        background-color: transparent;
+      }
+
+      .textarea-container .btn {
+        background-color: transparent;
+        border: none;
+        padding: 10px;
         cursor: pointer;
+      }
+
+      .textarea-container .btn img {
+        width: 24px;
+        height: 24px;
       }
 
       .chef {
@@ -172,7 +171,7 @@
       }
 
       .chef-description {
-        text-align: left;
+        text-align: center;
       }
       h1 {
         margin-top: 20px;
@@ -189,7 +188,7 @@
         font-size: 34px;
         font-weight: bold;
         color: #333;
-        z-index: 1; /* Ensure arrows are above the reviews */
+        z-index: 1;
       }
 
       .prevArrow {
@@ -201,28 +200,32 @@
       }
       @media only screen and (max-width: 768px) {
         .review-card {
-          flex: 0 0 calc((100% / 1) - 15px); /* Adjusted flex basis to include space between cards */
-            margin-right: 15px; /* Added margin to create space between cards */
+          font-size: 12px;
+          flex: 0 0 calc((100% / 1) - 20px);
+          margin-right: 20px;
         }
-        textarea {
-          max-width: 100%;
+        .star-icon {
+          font-size: 14px;
         }
-        .icons {
-          right: 180px;
+        .textarea-container {
+          width: 100%;
         }
-        .icons img {
-          width: 30px;
+        .textarea-container .btn img {
+          width: 18px;
+          height: 18px;
+        }
+        .textarea-container .btn {
+          padding: 5px;
         }
       }
-
-
-
     </style>
   </head>
   <body>
     <nav>
       <div class="nav-left">
-        <a href="homepage.html"><img src="src/et.png" alt="Restaurant Icon" class="restaurant-icon"></a> 
+        <a href="homepage.html"
+          ><img src="src/et.png" alt="Restaurant Icon" class="restaurant-icon"
+        /></a>
       </div>
       <div class="nav-right" id="navLinks">
         <img
@@ -257,8 +260,18 @@
         class="restaurantImage"
       />
       <!-- <img src="src/Heart Icon.svg" alt="" class="heartIcon" onclick="toggleColor(this)"/> -->
-      <svg class="heartIcon" onclick="toggleColor(this)" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/></svg>
-
+      <svg
+        class="heartIcon"
+        onclick="toggleColor(this)"
+        xmlns="http://www.w3.org/2000/svg"
+        height="24"
+        viewBox="0 -960 960 960"
+        width="24"
+      >
+        <path
+          d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"
+        />
+      </svg>
     </section>
 
     <section class="details">
@@ -286,15 +299,14 @@
         <div class="arrowIcon nextArrow">&gt;</div>
       </div>
       <div class="enter-review">
-        <textarea placeholder="Write your review..."></textarea>
-        <div class="icons">
-          <img
-            src="src/Camera Icon.png"
-            alt="Camera"
-            class="cameraIcon"
-            onclick="uploadImage('review')"
-          />
-          <img src="src/Send Icon.png" alt="Send" class="sendIcon" />
+        <div class="textarea-container">
+          <textarea placeholder="Write your review..."></textarea>
+          <button class="btn">
+            <img src="src/Camera Icon.png" alt="Send" class="Icon" />
+          </button>
+          <button class="btn">
+            <img src="src/Send Icon.png" alt="Send" class="Icon" />
+          </button>
         </div>
       </div>
     </section>
@@ -302,72 +314,68 @@
     <h1><b>Chefs</b></h1>
     <section class="chef" id="chef"></section>
     <br />
-    
-  <!------------------------------ Footer ------------------------------->
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-logo">
-        <img src="src/footer.png" alt="Your Company Logo">
-      </div>
-      <div class="footer-links">
-        <ul>
-          <li><a href="#"><b>CONTACT US</b></a></li>
-          <li><a href="#">info@eatTrek.com</a></li>
-          <li><a href="#">123-456-7890</a></li>
-          
-        </ul>
-      
 
-      <ul>
-        <li><a href="#"><b>ABOUT US</b></a></li>
-        <li><a href="#">FQA's</a></li>
-        <li><a href="#">Privacy Policies</a></li>
-        <li><a href="#">Terms of Service</a></li>
-        <li><a href="#">Help</a></li>
-      </ul>
-    
-
-    <ul>
-      <li><a href="#">Subscribe to our newsletter</a></li>
-      <li><a href="#">Download Our App</a></li>
-      <li><a href="#">Accessibilty</a></li>
-      <li><a href="#">Career</a></li>
-      <li><a href="#">Blog</a></li>
-    </ul>
-  </div>
- 
-      <hr>
-      <div class="footer-info">
-        <div class="social-media">
-          <a>
-            <img src="src/instagram.png" alt="">
-          </a>
-
-      
-          <a>
-            <img src="src/facebook.png" alt="">
-          </a>
-
-
-          <a>
-            <img src="src/twitter.png" alt="">
-          </a>
-
-          
-          <a>
-            <img src="src/linkedIn.png" alt="">
-          </a>
-
-          <a>
-            <img src="src/youtube.png" alt="">
-          </a>
+    <!------------------------------ Footer ------------------------------->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="src/footer.png" alt="Your Company Logo" />
         </div>
-        <p>© 2023 eatTrek, All rights reserved</p>
-      </div>
-    </div>
-  </footer>
-   
+        <div class="footer-links">
+          <ul>
+            <li>
+              <a href="#"><b>CONTACT US</b></a>
+            </li>
+            <li><a href="#">info@eatTrek.com</a></li>
+            <li><a href="#">123-456-7890</a></li>
+          </ul>
 
+          <ul>
+            <li>
+              <a href="#"><b>ABOUT US</b></a>
+            </li>
+            <li><a href="#">FQA's</a></li>
+            <li><a href="#">Privacy Policies</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+
+          <ul>
+            <li><a href="#">Subscribe to our newsletter</a></li>
+            <li><a href="#">Download Our App</a></li>
+            <li><a href="#">Accessibilty</a></li>
+            <li><a href="#">Career</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+
+        <hr />
+        <div class="footer-info">
+          <div class="social-media">
+            <a>
+              <img src="src/instagram.png" alt="" />
+            </a>
+
+            <a>
+              <img src="src/facebook.png" alt="" />
+            </a>
+
+            <a>
+              <img src="src/twitter.png" alt="" />
+            </a>
+
+            <a>
+              <img src="src/linkedIn.png" alt="" />
+            </a>
+
+            <a>
+              <img src="src/youtube.png" alt="" />
+            </a>
+          </div>
+          <p>© 2023 eatTrek, All rights reserved</p>
+        </div>
+      </div>
+    </footer>
 
     <!-------------------- JavaScript---------------------------->
     <script>
@@ -403,8 +411,6 @@
         });
       }
 
-
-
       const reviewData = [
         {
           reviewerName: "Emily Anderson",
@@ -438,42 +444,44 @@
 
       createReviewCard(reviewData);
 
-      
       function initializeReviewSlider() {
         const slider = document.querySelector(".review-container");
         const reviewCards = document.querySelectorAll(".review-card");
         const cardCount = reviewCards.length;
-        let cardWidth = reviewCards[0].offsetWidth+15;
-        let currentSlide = 0; 
+        let cardWidth = reviewCards[0].offsetWidth + 15;
+        let currentSlide = 0;
 
         // Appending additional cards for infinite loop
         for (let i = 0; i < cardCount; i++) {
-            const clone = reviewCards[i].cloneNode(true);
-            slider.appendChild(clone);
+          const clone = reviewCards[i].cloneNode(true);
+          slider.appendChild(clone);
         }
 
         function navigateReviewSlider(direction) {
-            currentSlide += direction;
-            const maxSlide = cardCount * 2 - 1; // Double the cards for looping
-            if (currentSlide < 0) {
-                currentSlide = maxSlide;
-            } else if (currentSlide > maxSlide) {
-                currentSlide = 0;
-            }
+          currentSlide += direction;
+          const maxSlide = cardCount * 2 - 1; // Double the cards for looping
+          if (currentSlide < 0) {
+            currentSlide = maxSlide;
+          } else if (currentSlide > maxSlide) {
+            currentSlide = 0;
+          }
 
-            const newPosition = -currentSlide * cardWidth;
-            slider.style.transition = "transform 0.5s ease-in-out";
-            slider.style.transform = `translateX(${newPosition}px)`;
+          const newPosition = -currentSlide * cardWidth;
+          slider.style.transition = "transform 0.5s ease-in-out";
+          slider.style.transform = `translateX(${newPosition}px)`;
         }
 
-        document.querySelector(".prevArrow").addEventListener("click", () => navigateReviewSlider(-1));
-        document.querySelector(".nextArrow").addEventListener("click", () => navigateReviewSlider(1));
-    }
+        document
+          .querySelector(".prevArrow")
+          .addEventListener("click", () => navigateReviewSlider(-1));
+        document
+          .querySelector(".nextArrow")
+          .addEventListener("click", () => navigateReviewSlider(1));
+      }
 
-    initializeReviewSlider();
+      initializeReviewSlider();
 
-    
-    // ********************************Chef********************************************
+      // ********************************Chef********************************************
       const chefData = [
         {
           name: "Chef Andrei Petrov",
@@ -528,8 +536,6 @@
       }
 
       createChefSections(chefData);
-
-      
     </script>
 
     <script src="script.js"></script>

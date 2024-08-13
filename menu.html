@@ -41,24 +41,24 @@
         text-align: left;
         cursor: pointer;
         position: relative;
-        width: 140px; /* Set a fixed width for the buttons */
+        width: 140px; 
         border-radius: 20px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         border: 1px solid rgba(0, 0, 0, 0.1);
       }
 
       .filter-button img {
-        vertical-align: middle; /* Align the image vertically within the button */
-        width: 40px; /* Set a fixed width for the images */
-        height: 40px; /* Set a fixed height for the images */
+        vertical-align: middle; 
+        width: 40px; 
+        height: 40px; 
         object-fit: cover;
         border-radius: 50%;
-        margin-right: 10px; /* Add some margin between the image and text */
+        margin-right: 10px; 
       }
 
       .filter-button span {
         display: inline-block;
-        vertical-align: middle; /* Align the text vertically within the button */
+        vertical-align: middle; 
       }
 
       .filter-image {
@@ -81,7 +81,7 @@
         border: 1px solid #ddd;
         border-radius: 8px;
         overflow: hidden;
-        position: relative;
+        /* position: relative; */
       }
 
       .menu-image {
@@ -122,20 +122,33 @@
       }
       @media only screen and (max-width: 768px) {
         .menu-section {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 20px; /* Adjust the gap for better spacing on smaller screens */
+          grid-template-columns: repeat(3, 1fr);
+          gap: 10px; 
         }
 
         .menu-card {
-          width: 100%; /* Make the cards take full width on smaller screens */
+          width: 100%; 
         }
 
         .menu-price {
-          font-size: 14px; /* Adjust font size for price on smaller screens */
+          font-size: 14px; 
         }
 
         .add-to-cart-button {
-          width: 60%; /* Make the button take full width on smaller screens */
+          width: 60%; 
+          
+        }
+      }
+      @media only screen and (max-width: 628px) {
+        .menu-section {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px; 
+        }
+      }
+      @media only screen and (max-width: 420px) {
+        .menu-section {
+          grid-template-columns: repeat(1, 1fr);
+          gap: 10px; 
         }
       }
 
@@ -705,7 +718,7 @@
 
       function displayMenu(menuItems) {
         const menuSection = document.getElementById("menuSection");
-        menuSection.innerHTML = ""; // Clear existing content before displaying new items
+        menuSection.innerHTML = ""; 
 
         menuItems.forEach((item) => {
           const menuCard = document.createElement("div");
@@ -749,22 +762,22 @@
         });
       }
       function showAllMenu() {
-  displayMenu(menuData); // Use displayMenu instead of filterMenu
+  displayMenu(menuData); 
 }
 
 // Call the function to display all menu items when the page loads
 document.addEventListener("DOMContentLoaded", () => {
   showAllMenu();
-  updateCartDisplay(); // Update the cart display as well
+  updateCartDisplay(); 
 });
 
-      // Function to show the cart
+      
       function showCart() {
         const cartContainer = document.getElementById("cartContainer");
         cartContainer.classList.add("show-cart");
       }
 
-      // Function to hide the cart
+     
       function hideCart() {
         const cartContainer = document.getElementById("cartContainer");
         cartContainer.classList.remove("show-cart");
@@ -784,10 +797,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         localStorage.setItem("cart", JSON.stringify(cartItems));
 
-        // Update the cart immediately after adding an item
+        
         updateCartDisplay();
 
-        // Show the cart when an item is added
+        
         showCart();
       }
 
